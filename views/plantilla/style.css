@@ -1,0 +1,1110 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #003366;
+    color: white;
+}
+
+header .logo img {
+    height: 80px;
+}
+
+header .search-bar {
+    display: flex;
+    align-items: center;
+}
+
+header .search-bar input {
+    padding: 15px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+header .cart {
+    display: flex;
+    align-items: center;
+}
+
+header .cart span {
+    margin-right: 10px;
+}
+
+nav {
+    background-color: #002244;
+}
+nav ul {
+    list-style-type: none;
+    justify-content: space-between;
+
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    display: block;
+    margin: 0px 0px;
+}
+
+/* login*/
+/* login*/
+
+#inicioses {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    padding: 20px;
+}
+
+.login-form {
+    background-color: #003366;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    color: white;
+    text-align: center;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.login-form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-form a {
+    color: red;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.login-form button {
+    padding: 10px;
+    background-color: #0055aa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/*DETALLE PRODUCTO*/
+/*DETALLE PRODUCTO*/
+
+#iniciar{
+    text-decoration: none;
+}
+
+.product {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin: 50px 200px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.stock{
+    font-size: medium;
+    color: red;
+}
+
+.product-image img {
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.product-details {
+    margin-left: 20px;
+}
+
+.product-details h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-details p {
+    margin: 5px 0;
+}
+
+.product-details .price {
+    font-size: 20px;
+    color: red;
+}
+
+.product-details .price-info {
+    font-size: 12px;
+    color: grey;
+}
+
+.add-to-cart {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.add-to-cart input {
+    width: 50px;
+    margin-right: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+.add-to-cart button {
+    padding: 10px 20px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart{
+    display: flex;
+}
+
+.carrito{
+    margin: 0px 50px;
+    background: red;
+    color: white;
+    border-radius: 5px;
+}
+
+.carrito:hover{
+    background: black;
+}
+
+.carrito:hover > a{
+    color: red;
+}
+
+.product-gallery {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.product-gallery img {
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+
+
+
+
+/*DETALLE DE CARRITO*/
+/*DETALLE DE CARRITO*/
+
+#detallecarro {
+    display: flex;
+    width: 70%;
+    margin: 20px auto;
+}
+
+#detalle1{
+    display: flex;
+    width: 100%;
+    align-content: space-around;
+}
+#detalle2{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0px;
+    align-content: center;
+}
+
+#carrito{
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin: 0px 5% 0px 0px;
+    width: 65%;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+
+#resumen{
+    border: 2px solid #ccc;
+    padding: 20px;
+    width: 25%;
+    max-width: 800px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+#precios p {
+    text-align: right;
+}
+
+#guardados{
+    display: inline-block;
+    position:relative;
+    border: 2px solid #ccc;
+    width: 70%;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+
+
+#carrito h2 {
+    margin-bottom: 20px;
+}
+
+#resumen h2 {
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+
+#guardados h2 {
+    margin-bottom: 20px;
+}
+
+#producto, .producto-guardado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#producto a{
+    text-decoration: none;
+    position: absolute;
+    margin: 0px 0px 0px 5px;
+}
+
+#detalles-producto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#producto img{
+    width: 200px;
+}
+
+#detallep1{
+    display: block;
+    
+}
+
+#info-producto {
+    flex: 1;
+    padding: 0 20px;
+}
+
+#info-producto p {
+    margin: 5px 0;
+}
+
+#info-producto .tachado {
+    text-decoration: line-through;
+    color: #999;
+}
+
+#cantidad {
+    display: flex;
+    align-items: center;
+}
+
+#cantidad button {
+    width: 30px;
+    height: 30px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#cantidad span {
+    margin: 0 10px;
+}
+
+
+
+#resumen p {
+    margin: 10px 0;
+}
+
+#resumen button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#guardados .producto-guardado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+#guardados .producto-guardado img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+#guardados .producto-guardado p {
+    margin: 5px 0;
+}
+
+#guardados .producto-guardado .tachado {
+    text-decoration: line-through;
+    color: #999;
+}
+
+#guardados .producto-guardado button {
+    padding: 5px 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+/*navegador superior*/
+/*navegador superior*/
+
+.nav{
+    margin: 0px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;                              /*alinear espacios iguales*/
+    
+}
+
+.nav1{
+    display: inline-block;                                      /*alinear vertical*/
+    padding: 5px;
+    position: relative;
+    width: 200px;
+}
+
+.nav1 a{
+    text-decoration: none;                                      /*quitar subrayado texto*/
+    color: white;
+}
+
+.nav1:hover {
+    background: white;
+}
+
+.nav1:hover >a{
+    color: black;
+}
+
+.subnav{
+    display: none;
+    position: absolute;
+    list-style: none;
+    background: white ;                                     /*quitar espacio a la izquierda*/
+    padding: 0;
+    left: 0px;
+    top: 38px;
+}
+
+.nav2{
+    width: 200px;
+    margin: 0;
+    color: black;
+}
+.nav2 a{
+    color: gray;
+}
+
+
+.nav1:hover > .subnav{
+    display: block;
+}
+
+.nav2:hover{
+    background: whitesmoke;
+}
+
+.nav2:hover > a{
+    color: grey;
+}
+
+.nav2 ::before{
+    content: ' » ';
+    color: blue;
+}
+
+/*TERMINOS Y CONDICIONES*/
+/*TERMINOS Y CONDICIONES*/
+
+/* Estilo del encabezado */
+#tyc {
+    display: block;
+    padding: 20px;
+    border-bottom: 2px solid #003399;
+}
+
+#tyc h1 {
+    margin: 0px 700px;
+    justify-content: center;
+}
+/* Estilo del título del encabezado */
+#titulo {
+    color: #003399;
+    margin: 0px 0px;
+    justify-content: center;
+}
+
+/* Estilo de la sección de restricciones */
+#restricciones {
+    padding: 100px 500px;
+    margin: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Estilo del título de las secciones */
+#restricciones h2, #garantias h2 {
+    color: #003399;
+    text-align: center;
+}
+
+/* Estilo del texto de la sección de restricciones */
+#restricciones p {
+    text-align: justify;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Estilo de la sección de garantías */
+#garantias {
+    padding: 100px;
+    margin: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#garantias h2{
+    margin: 0px 0px 50px 0px;
+}
+
+/* Estilo de los horarios */
+.horario {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+/* Estilo de los días y horarios */
+.horario h3 {
+    color: #003399;
+    margin-bottom: 5px;
+}
+
+#lunes-viernes p, #refrigerio p, #sabados p {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+#refrigerio p {
+    color: #ff0000;
+}
+
+#sabados p {
+    color: #ff0000;
+}
+
+
+
+
+
+/*PAGINA PRINCIPAL*/
+/*PAGINA PRINCIPAL*/
+
+#paginapr {
+    justify-content: center;
+}
+
+
+#carrusel img{
+    width: 1320px;
+    height: 600px;
+    margin: 0px 250px;
+}
+
+#products { 
+    justify-content: center;
+    margin: 0px 250px;
+}
+
+
+#products h2 {
+    text-align: right;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+
+#products h2 a {
+    color: #0055aa;
+    text-decoration: none;
+    margin-right: 80px;
+}
+
+
+.product-list {
+    display: inline-flex;
+    gap: 30px;
+    margin: 10px 10px;
+}
+
+
+.product-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    justify-content: space-between;
+}
+
+
+.product-box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
+.product-info {
+    text-align: left;
+}
+
+
+.product-info p {
+    margin: 5px 0;
+}
+
+
+.product-info .price {
+    font-size: 1.2em;
+    color: #003366;
+}
+
+
+.product-info .discount-price {
+    font-size: 0.9em;
+    color: #999999;
+}
+
+
+.product-info .stock {
+    font-size: 0.9em;
+    color: #00aa00;
+}
+
+
+.product-info .reference {
+    font-size: 0.8em;
+    color: #666666;
+}
+
+
+.buy-btn {
+    padding: 10px;
+    background-color: #0055aa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.buy-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+/*PRODUCTOS VARIOS*/
+/*PRODUCTOS VARIOS*/
+
+
+
+#catalog {
+    display: flex;
+    margin: 20px;
+}
+
+#filters {
+    width: 20%;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.filter-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.filter-section li {
+    margin: 10px 0;
+}
+
+#product {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-item {
+    width: calc(33.333% - 40px);
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.product-item img {
+    max-width: 100%;
+}
+
+.product-item h4 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.product-item .price {
+    font-size: 24px;
+    color: red;
+    margin: 0;
+}
+
+.product-item .installments {
+    font-size: 18px;
+    color: gray;
+    margin: 2px;
+}
+
+.product-item button {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.product-item button:hover {
+    background-color: darkblue;
+}
+
+
+
+/*LIBRO DE RECLAMACIONES*/
+/*LIBRO DE RECLAMACIONES*/
+
+
+#libro-reclamaciones {
+    display: inline-block;
+    max-width: 800px;
+    margin: 50px 500px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+#libro-reclamaciones h1, #libro-reclamaciones h2 {
+    color: #003399;
+    text-align: center;
+}
+
+#libro-reclamaciones p {
+    text-align: center;
+    line-height: 1.6;
+    color: #333;
+}
+
+#reclamaciones-form {
+    margin: 20px 40px 20px 40px;
+}
+
+.form-group {
+    margin: 15px 10px 15px 10px;
+}
+.form-group select {
+    margin: 15px 10px 15px 10px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 100px;
+}
+
+
+
+/* NUESTRA EMPRESA */
+/* NUESTRA EMPRESA */
+
+
+#empresa {
+    width: 50%;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+#empresa h1 {
+    text-align: center;
+    color: #333;
+}
+
+#nosotros, #mision, #vision {
+    background-color: #e0f7fa;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#nosotros h2, #mision h2, #vision h2 {
+    color: #006064;
+    margin-top: 0;
+}
+
+#nosotros p, #mision p, #vision p {
+    color: #333;
+    line-height: 1.6;
+}
+
+
+
+/*MEDIOS DE PAGO*/
+/*MEDIOS DE PAGO*/
+
+
+#medios-de-pago {
+    width: 60%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#titulo {
+    text-align: center;
+    color: #333;
+    color: #003366;
+    padding: 10px;
+    border-bottom: 5px solid #003366;
+}
+
+#cuentas {
+    display: flex;
+    justify-content: space-between;
+}
+
+#cuenta-soles, #cuenta-dolares {
+    background-color: #003366;
+    color: #ffcc00;
+    padding: 20px;
+    width: 45%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#cuenta-soles h2, #cuenta-dolares h2 {
+    color: #ffffff;
+}
+
+#cuenta-soles p, #cuenta-dolares p {
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+#pago-yape {
+
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#pago-yape h3 {
+    color: #333;
+}
+
+#pago-yape img{
+    width: 300px;
+}
+
+#recargo {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #ff0000;
+}
+
+#metodos {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#nota {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/*CONTACTO*/
+/*CONTACTO*/
+
+
+
+#atencion-cliente {
+    width: 40%;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#atencion-cliente h1 {
+    text-align: center;
+    color: #333;
+}
+
+#formulario-contacto {
+    display: flex;
+    flex-direction: column;
+}
+
+#tipo-formulario {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#tipo-formulario label {
+    font-size: 16px;
+    color: #333;
+}
+
+#datos-personales {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#datos-personales input,
+#datos-personales textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#datos-personales textarea {
+    grid-column: span 2;
+    resize: none;
+    height: 100px;
+}
+
+#enviar {
+    align-self: flex-start;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#enviar:hover {
+    background-color: #218838;
+}
+
+#nuestras-tiendas {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#nuestras-tiendas h2 {
+    color: #333;
+}
+
+#nuestras-tiendas p {
+    color: #333;
+    line-height: 1.6;
+}
+
+/* barra footer*/
+/* barra footer*/
+
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 20px 0;
+}
+
+#info::before{
+    content: ' » ';
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.footer-content div {
+    margin: 10px;
+    width: 200px;
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.footer-social img {
+    width: 30px;
+    margin: 0 5px;
+}
+
+.footer-social a {
+    margin: 10px 0px;
+}
+
+.footer-social p {
+    margin: 0;
+}
+
+.footer-newsletter input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.footer-newsletter button {
+    padding: 10px;
+    background-color: #0055aa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    display: flex;
+    text-align: center;
+    margin-top: 20px;
+    margin: 0px 20px 0px 20px;
+    border-top: 1px solid #004488;
+    padding-top: 20px;
+    justify-content: space-between;
+}
+
+.footer-payments img {
+    width: 50px;
+    margin: 0 10px;
+}
+

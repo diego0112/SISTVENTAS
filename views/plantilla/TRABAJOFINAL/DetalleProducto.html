@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Importec Solutions - Inicia Sesión</title>
-    <link rel="stylesheet" href="./views/plantilla/style.css">
+    <title>Importec Solutions</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-
         <div class="logo">
             <a href="index.html">
-            <img src="./views/plantilla/img/logo.png" alt="Importec Solutions Logo">
+            <img src="img/logo.png" alt="Importec Solutions Logo">
             </a>
         </div>
-
         <div class="search-bar">
             <input type="text" placeholder="Nombre del Producto">
             <button type="submit">Buscar</button>
         </div>
-
         <div class="cart">
-                <button class="carrito" type="button">S/. 200,30</button>
+                <button class="carrito" type="button">$200,30</button>
                 <button  type="button"><a id="iniciar" href="IniciarSesion.html">Iniciar sesión</a></button>
         </div>
     </header>
@@ -61,19 +58,32 @@
             </li>
         </ul>
     </nav>
-    <main id="inicioses">
-        <div class="login-form">
-            <h2>Inicia sesión</h2>
-            <form>
-                <label for="email">Dirección de Correo Electrónico</label>
-                <input type="email" id="email" name="email">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password">
-                <a href="#">¿Olvidaste tu Contraseña?</a>
-                <button type="submit">Inicia sesión</button>
-                <button type="button">No tienes una cuenta? Crea una aquí</button>
-            </form>
+    <main>
+        <div class="product">
+            <div class="product-image">
+                <img src="img/VGA24GB.jpg" alt="VGA ASUS GEFORCE NVIDIA TUF GAMING RTX 4090 SUPER OC 24GB GDDR6X">
+            </div>
+            <div class="product-details">
+                <h1>VGA ASUS GEFORCE NVIDIA TUF GAMING RTX 4090 SUPER OC 24GB GDDR6X</h1>
+                <p><strong>Marca:</strong> ASUS</p>
+                <p><strong>Referencia:</strong> 0121241222</p>
+                <p><strong>Estado:</strong> Mayor a 20 Artículos</p>
+                <p><strong>En Stock:</strong> En Stock</p>
+                <p><strong>Número de Parte:</strong> KVR32N22S8L/8</p>
+                <p class="price"><strong>$2.186,60 (S/ 8.159,12)</strong></p>
+                <p class="price-info">*Sin recargo adicional por pago en Efectivo o Transferencia.</p>
+                <p class="price"><strong>$2.195,60 (S/ 8.192,71)</strong></p>
+                <p class="price-info">*Con recargo de 5% adicional por pago con tarjeta de crédito/débito.</p>
+                <br>
+                <p class="stock"><strong>Stock: <20 </strong></p>
+                <div class="add-to-cart">
+                    <label for="quantity">Cantidad:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="5" value="1">
+                    <button type="button">Añadir al Carrito</button>
+                </div>
+            </div>
         </div>
+        
     </main>
     <footer>
         <div class="footer-content">
@@ -102,7 +112,7 @@
 
             <div class="footer-policy">
                 <h4>Políticas y Condiciones</h4>
-                <a  id="info" href="Contacto.html">Contactanos</a>
+                <a  id="info" href="#">Política de Cookies</a>
                 <a id="info" href="#">Política de Privacidad de Datos Personales</a>
                 <a id="info" href="#">Política de Envío</a>
                 <a id="info" href="#">Términos y Condiciones</a>

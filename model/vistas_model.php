@@ -3,7 +3,7 @@
 class vistaModelo{
 
     protected static function obtener_vista($vista){
-        $palabras_permitidas =[ 'usuario', 'producto'];
+    $palabras_permitidas =[ 'usuario', 'producto', 'login', 'index', 'catalogo', 'contacto', 'DetalledeCarrito' , 'DetalleProducto', 'Mediosdepago', 'NuestraEmpresa', 'reclamaciones', 'TerminosyCondiciones'] ;
         if (in_array($vista, $palabras_permitidas)){
             if(is_file("./views/".$vista.".php")){
                 $contenido = "./views/".$vista.".php";
@@ -11,7 +11,7 @@ class vistaModelo{
             }else {
                 $contenido = "404";
             }
-        }elseif($vista=="login" || $vista="index"){
+        }elseif($vista=="login" || $vista=="index"){
             $contenido="login";
         }else{
             $contenido = "404";
