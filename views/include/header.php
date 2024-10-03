@@ -12,7 +12,7 @@
     <header>
 
         <div class="logo">
-            <a href="index.html">
+            <a href="index.php">
             <img src="./views/plantilla/img/logo.png" alt="Importec Solutions Logo">
             </a>
         </div>
@@ -31,22 +31,22 @@
         <ul class="nav">
             <li class="nav1"><a href="#">Laptops</a>
                 <ul class="subnav">
-                    <li class="nav2"><a href="Catalogo.html">INTEL CELERON </a></li>
-                    <li class="nav2"><a href="Catalogo.html">INTEL CORE I3 </a></li>
-                    <li class="nav2"><a href="Catalogo.html">INTEL CORE I5 </a></li>
-                    <li class="nav2"><a href="Catalogo.html">INTEL CORE I7 </a></li>
-                    <li class="nav2"><a href="Catalogo.html">INTEL CORE I9 </a></li>
+                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">INTEL CELERON </a></li>
+                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">INTEL CORE I3 </a></li>
+                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">INTEL CORE I5 </a></li>
+                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">INTEL CORE I7 </a></li>
+                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">INTEL CORE I9 </a></li>
                 </ul>
             </li>
             <li class="nav1"><a href="#">Marcas más vendidas</a>
                 <ul class="subnav">
                     <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">KINGSTON </a></li>
-                    <li class="nav2"><a href="Catalogo.html">HP </a></li>
-                    <li class="nav2"><a href="Catalogo.html">LENOVO </a></li>
-                    <li class="nav2"><a href="Catalogo.html">ASUS </a></li>
-                    <li class="nav2"><a href="Catalogo.html">GIGABYTE </a></li>
-                    <li class="nav2"><a href="Catalogo.html">LOGITECH </a></li>
-                    <li class="nav2"><a href="Catalogo.html">MSI </a></li>
+                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">HP </a></li>
+                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">LENOVO </a></li>
+                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">ASUS </a></li>
+                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">GIGABYTE </a></li>
+                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">LOGITECH </a></li>
+                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">MSI </a></li>
                 </ul>
             </li>
             <li><a href="<?php echo BASE_URL; ?>catalogo">Productos</a>
