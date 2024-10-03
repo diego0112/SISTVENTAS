@@ -40,7 +40,7 @@
             </li>
             <li class="nav1"><a href="#">Marcas más vendidas</a>
                 <ul class="subnav">
-                    <li class="nav2"><a href="<?php echo BASE_URL ?> catalogo">KINGSTON </a></li>
+                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">KINGSTON </a></li>
                     <li class="nav2"><a href="Catalogo.html">HP </a></li>
                     <li class="nav2"><a href="Catalogo.html">LENOVO </a></li>
                     <li class="nav2"><a href="Catalogo.html">ASUS </a></li>
@@ -49,7 +49,7 @@
                     <li class="nav2"><a href="Catalogo.html">MSI </a></li>
                 </ul>
             </li>
-            <li><a href="Catalogo.html">Productos</a>
+            <li><a href="<?php echo BASE_URL; ?>catalogo">Productos</a>
             
             </li>
             <li><a href="#">Promos</a>
