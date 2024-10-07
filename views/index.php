@@ -7,7 +7,7 @@
                 </section>                
 
         <section id="products">
-            <h2>PRODUCTOS NUEVOS <a href="Catalogo.html">Ver más →</a></h2>
+            <h2>PRODUCTOS NUEVOS <a href="<?php echo BASE_URL; ?>catalogo">Ver más →</a></h2>
 
             <div class="product-list">
                 <div class="product-box" id="product1">
@@ -18,8 +18,8 @@
                         <p class="discount-price">S/. 3,125,30</p>
                         <p class="stock">Stock: 10</p>
                         <p class="reference">Ref: 135454576</p>
-                        <button class="buy-btn"><a href="DetalleProducto.html">DETALLES</a></button>
-                        <button class="buy-btn"><a href="DetalledeCarrito.html">COMPRAR</a></button>
+                        <a href="<?php echo BASE_URL; ?>DetalleProducto"><button class="buy-btn">DETALLES</button></a>
+                        <a href="<?php echo BASE_URL; ?>detalledecarrito"> <button class="buy-btn">COMPRAR</button></a>
                     </div>
                 </div>
 
@@ -31,8 +31,8 @@
                         <p class="discount-price">S/. 2,125,30</p>
                         <p class="stock">Stock: 10</p>
                         <p class="reference">Ref: 135454576</p>
-                        <button class="buy-btn"><a href="DetalleProducto.html">DETALLES</a></button>
-                        <button class="buy-btn"><a href="DetalledeCarrito.html">COMPRAR</a></button>
+                       <a href="<?php echo BASE_URL; ?>DetalleProducto"><button class="buy-btn">DETALLES</button></a>
+                        <a href="<?php echo BASE_URL; ?>detalledecarrito"> <button class="buy-btn">COMPRAR</button></a>
                     </div>
                 </div>
 
@@ -44,8 +44,8 @@
                         <p class="discount-price">$3,125,30</p>
                         <p class="stock">Stock: 10</p>
                         <p class="reference">Ref: 135454576</p>
-                        <button class="buy-btn"><a href="DetalleProducto.html">DETALLES</a></button>
-                        <button class="buy-btn"><a href="DetalledeCarrito.html">COMPRAR</a></button>
+                        <a href="<?php echo BASE_URL; ?>DetalleProducto"><button class="buy-btn">DETALLES</button></a>
+                        <a href="<?php echo BASE_URL; ?>detalledecarrito"> <button class="buy-btn">COMPRAR</button></a>
                     </div>
                 </div>
 
@@ -57,8 +57,8 @@
                         <p class="discount-price">$3,125,30</p>
                         <p class="stock">Stock: 10</p>
                         <p class="reference">Ref: 135454576</p>
-                        <button class="buy-btn"><a href="DetalleProducto.html">DETALLES</a></button>
-                        <button class="buy-btn"><a href="DetalledeCarrito.html">COMPRAR</a></button>
+                       <a href="<?php echo BASE_URL; ?>DetalleProducto"><button class="buy-btn">DETALLES</button></a>
+                        <a href="<?php echo BASE_URL; ?>detalledecarrito"> <button class="buy-btn">COMPRAR</button></a>
                     </div>
                 </div>
 
@@ -70,8 +70,8 @@
                         <p class="discount-price">$8,265,35</p>
                         <p class="stock">Stock: 48</p>
                         <p class="reference">Ref: 135454566</p>
-                        <button class="buy-btn"><a href="DetalleProducto.html">DETALLES</a></button>
-                        <button class="buy-btn"><a href="DetalledeCarrito.html">COMPRAR</a></button>
+                      <a href="<?php echo BASE_URL; ?>DetalleProducto"><button class="buy-btn">DETALLES</button></a>
+                        <a href="<?php echo BASE_URL; ?>detalledecarrito"> <button class="buy-btn">COMPRAR</button></a>
                     </div>
                 </div>
             

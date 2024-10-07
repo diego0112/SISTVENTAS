@@ -12,24 +12,24 @@
             </div>
             <div class="footer-social">
                 <h4>Síguenos</h4>
-                <a href="https://www.facebook.com/profile.php?id=100067636255042&locale=es_LA"><img src="img/iconofb.png" alt="Facebook"><p>Facebook</p></a>
-                <a href="https://www.instagram.com/andreedc01?igsh=NXFwYnc3ZGJlMjZl"><img src="img/intagram.png" alt="Instagram"><p>Instagram</p></a>
+                <a href="https://www.facebook.com/profile.php?id=100067636255042&locale=es_LA"><img src="./views/plantilla/img/iconofb.png" alt="Facebook"><p>Facebook</p></a>
+                <a href="https://www.instagram.com/andreedc01?igsh=NXFwYnc3ZGJlMjZl"><img src="./views/plantilla/img/intagram.png" alt="Instagram"><p>Instagram</p></a>
             </div>
 
             <div class="footer-links">
                 <h4>Información</h4>
-                <a id="info" href="TyC.html">Términos y Condiciones</a>
-                <a id="info" href="NuestraEmpresa.html">Nuestra Empresa</a>
-                <a id="info" href="reclamaciones.html">Libro de Reclamaciones</a>
-                <a id="info" href="Mediosdepago.html">Medios de Pago</a>
+                <a id="info" href="<?php echo BASE_URL; ?>TerminosyCondiciones">Términos y Condiciones</a>
+                <a id="info" href="<?php echo BASE_URL; ?>NuestraEmpresa">Nuestra Empresa</a>
+                <a id="info" href="<?php echo BASE_URL; ?>reclamaciones">Libro de Reclamaciones</a>
+                <a id="info" href="<?php echo BASE_URL; ?>Mediosdepago">Medios de Pago</a>
             </div>
 
             <div class="footer-policy">
                 <h4>Políticas y Condiciones</h4>
-                <a  id="info" href="Contacto.html">Contactanos</a>
+                <a  id="info" href="<?php echo BASE_URL; ?>contacto">Contactanos</a>
                 <a id="info" href="#">Política de Privacidad de Datos Personales</a>
                 <a id="info" href="#">Política de Envío</a>
-                <a id="info" href="#">Términos y Condiciones</a>
+                <a id="info"  href="<?php echo BASE_URL; ?>TerminosyCondiciones">Términos y Condiciones</a>
             </div>
 
             <div class="footer-newsletter">
@@ -44,10 +44,10 @@
         <div class="footer-bottom">
             <p>© 2024 IMPORTEC Solutions SAC. Todos los derechos reservados</p>
             <div class="footer-payments">
-                <img src="img/visa.png" alt="Visa">
-                <img src="img/mastercard.png" alt="Mastercard">
-                <img src="img/americanexpress.png" alt="AmericanExpress">
-                <img src="img/bcp.png" alt="BCP">
+                <img src="./views/plantilla/img/visa.png" alt="Visa">
+                <img src="./views/plantilla/img/mastercard.png" alt="Mastercard">
+                <img src="./views/plantilla/img/americanexpress.png" alt="AmericanExpress">
+                <img src="./views/plantilla/img/bcp.png" alt="BCP">
             </div>
         </div>
     </footer>

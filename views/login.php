@@ -17,9 +17,9 @@
                 <input type="email" id="email" name="email">
                 <label for="password">Contraseña</label>
                 <input type="password" id="password" name="password">
-                <a href="#">¿Olvidaste tu Contraseña?</a>
-                <button type="submit">Inicia sesión</button>
-                <button type="button">No tienes una cuenta? Crea una aquí</button>
+                <a href="<?php echo BASE_URL; ?>index">¿Olvidaste tu Contraseña?</a>
+                <a href="<?php echo BASE_URL; ?>index"><button type="button">Inicia sesión</button></a>
+                <a href="<?php echo BASE_URL; ?>index"><button type="button">No tienes una cuenta? Crea una aquí</button></a>
             </form>
         </div>
     </main>

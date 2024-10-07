@@ -12,8 +12,8 @@
     <header>
 
         <div class="logo">
-            <a href="index.php">
-            <img src="./views/plantilla/img/logo.png" alt="Importec Solutions Logo">
+            <a href="<?php echo BASE_URL; ?>index">
+          <img src="./views/plantilla/img/logo.png" alt="Importec Solutions Logo">
             </a>
         </div>
 
@@ -23,8 +23,8 @@
         </div>
 
         <div class="cart">
-                <a href="DetalledeCarrito.html"><button class="carrito" type="button">S/. 200,30</button></a>
-                <button  type="button"><a id="iniciar" href="IniciarSesion.html">Iniciar sesión</a></button>
+        <a href="<?php echo BASE_URL; ?>detalledecarrito"><button class="carrito" type="button">S/. 200,30</button></a>
+                <button  type="button"><a id="iniciar" href="<?php echo BASE_URL; ?>login">Iniciar sesión</a></button>
         </div>
     </header>
     <nav>
@@ -55,10 +55,10 @@
             <li><a href="#">Promos</a>
             
             </li>
-            <li><a href="Mediosdepago.html">Medios de pago</a>
+            <li><a href="<?php echo BASE_URL; ?>Mediosdepago">Medios de pago</a>
             
             </li>
-            <li><a href="TyC.html">Términos y condiciones</a>
+            <li><a href="<?php echo BASE_URL; ?>TerminosyCondiciones">Términos y condiciones</a>
             
             </li>
         </ul>
