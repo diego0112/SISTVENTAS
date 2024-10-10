@@ -12,7 +12,7 @@ class vistaModelo{
             }else {
                 $contenido = "404";
             }
-        }elseif($vista=="login" || $vista=="index"){
+        }elseif($vista=="index" || $vista=="index"){
             $contenido="login";
         }else{
             $contenido = "404";
