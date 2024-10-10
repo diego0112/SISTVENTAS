@@ -6,6 +6,6 @@ const BD_USER = '';
 const BD_PASSWORD = '';
 
 
-const BASE_URL = '';
+const BASE_URL = 'https://diego.importecsolutions.com/';
 
 ?>
