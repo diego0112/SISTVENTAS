@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="./views/plantilla/style.css">
 <link rel="stylesheet" href="./views/login.php">
 <link rel="stylesheet" href="./views/index.php">
+<script>
+    const base_url = '<?php echo BASE_URL; ?>';
+</script>
 </head>
 <body>
     <header>

@@ -1,34 +1,34 @@
-<form action="" class="form-control"    >
+<form id="formRegistrarProd" action="" class="form-control"    >
     <div class="form-group">
-    <label for="">Codigo:</label>
-        <input type="text" placeholder="Codigo" required>
+        <label for="codigo">Codigo:</label>
+        <input id="codigo" type="text" placeholder="codigo" required>
 
         
         <label for="Nombre">Nombre:</label><br>
-        <input type="text" placeholder="Nombre" required>
+        <input id="nombre" type="text" placeholder="Nombre" required>
 
         <label for="detalle">Detalle:</label><br>
-        <textarea placeholder="Detalle" required></textarea>
+        <textarea id="detalle" placeholder="Detalle" required></textarea>
 
         <label for="precio">precio:</label><br>
-        <input type="number" placeholder="Precio" required>
+        <input id="precio" type="number" placeholder="Precio" required>
 
-        <label for="precio">Stock Inicial:</label><br>
-        <input type="number" placeholder="Stock inicial" required>
+        <label for="stock">Stock Inicial:</label><br>
+        <input id="stock" type="number" placeholder="Stock inicial" required>
 
         <label for="Categoria">Categoria:</label><br>
-        <input type="text" placeholder="Categoria" required>
+        <input id="categoria" type="text" placeholder="Categoria" required>
 
         <label for="Fecha de Vencimiento">Fecha de Vencimiento:</label><br>
-        <input type="date" placeholder="Fecha de Vencimiento" required>
+        <input id="fecha" type="date" placeholder="Fecha de Vencimiento" required>
 
         <label for="img">Imagen:</label><br>
-        <input type="number" placeholder="Precio" required>
+        <input id="img" type="text" placeholder="Precio" required>
 
         <label for="proveedor">proveedor:</label><br>
-        <input type="number" placeholder="Proveedor" required>
+        <input id="proveedor" type="text" placeholder="Proveedor" required>
 
-        <input type="submit" value="Registrar Producto">
+        <button type="button" class="btn btn-success" onclick="registrar_producto();">Registrar</button>
     </div>
 </form>
 
