@@ -9,57 +9,100 @@
 <link rel="stylesheet" href="./views/index.php">
 </head>
 <body>
-    <header>
+<header class="bg-light py-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Logo -->
+            <div class="col-md-4 text-center text-md-left mb-3 mb-md-0">
+                <div class="logo">
+                    <a href="<?php echo BASE_URL; ?>index">
+                        <img src="./views/plantilla/img/logo.png" alt="Importec Solutions Logo" class="img-fluid">
+                    </a>
+                </div>
+            </div>
 
-        <div class="logo">
-            <a href="<?php echo BASE_URL; ?>index">
-          <img src="./views/plantilla/img/logo.png" alt="Importec Solutions Logo">
-            </a>
-        </div>
+            <!-- Barra de búsqueda -->
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="search-bar input-group">
+                    <input type="text" class="form-control" placeholder="Nombre del Producto">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+            </div>
 
-        <div class="search-bar">
-            <input type="text" placeholder="Nombre del Producto">
-            <button type="submit">Buscar</button>
+            <!-- Carrito y sesión -->
+            <div class="col-md-4 text-center text-md-right">
+                <div class="cart">
+                    <a href="<?php echo BASE_URL; ?>detalledecarrito">
+                        <button class="btn btn-secondary">S/. 200,30</button>
+                    </a>
+                    <a href="<?php echo BASE_URL; ?>login" class="btn btn-outline-primary">Iniciar sesión</a>
+                </div>
+            </div>
         </div>
+    </div>
+</header>
 
-        <div class="cart">
-        <a href="<?php echo BASE_URL; ?>detalledecarrito"><button class="carrito" type="button">S/. 200,30</button></a>
-                <button  type="button"><a id="iniciar" href="<?php echo BASE_URL; ?>login">Iniciar sesión</a></button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">Importec Solutions</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <!-- Laptops -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="laptopsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Laptops
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="laptopsDropdown">
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>catalogo">INTEL CELERON</a>
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>catalogo">INTEL CORE I3</a>
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>catalogo">INTEL CORE I5</a>
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>catalogo">INTEL CORE I7</a>
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>catalogo">INTEL CORE I9</a>
+                    </div>
+                </li>
+
+                <!-- Marcas más vendidas -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="brandsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Marcas más vendidas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="brandsDropdown">
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>catalogo">KINGSTON</a>
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>catalogo">HP</a>
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>catalogo">LENOVO</a>
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>catalogo">ASUS</a>
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>catalogo">GIGABYTE</a>
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>catalogo">LOGITECH</a>
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>catalogo">MSI</a>
+                    </div>
+                </li>
+
+                <!-- Productos -->
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo BASE_URL; ?>catalogo">Productos</a>
+                </li>
+
+                <!-- Promos -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Promos</a>
+                </li>
+
+                <!-- Medios de pago -->
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo BASE_URL; ?>Mediosdepago">Medios de pago</a>
+                </li>
+
+                <!-- Términos y condiciones -->
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo BASE_URL; ?>TerminosyCondiciones">Términos y condiciones</a>
+                </li>
+            </ul>
         </div>
-    </header>
-    <nav>
-        <ul class="nav">
-            <li class="nav1"><a href="#">Laptops</a>
-                <ul class="subnav">
-                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">INTEL CELERON </a></li>
-                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">INTEL CORE I3 </a></li>
-                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">INTEL CORE I5 </a></li>
-                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">INTEL CORE I7 </a></li>
-                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">INTEL CORE I9 </a></li>
-                </ul>
-            </li>
-            <li class="nav1"><a href="#">Marcas más vendidas</a>
-                <ul class="subnav">
-                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">KINGSTON </a></li>
-                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">HP </a></li>
-                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">LENOVO </a></li>
-                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">ASUS </a></li>
-                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">GIGABYTE </a></li>
-                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">LOGITECH </a></li>
-                    <li class="nav2"><a href="<?php echo BASE_URL; ?>catalogo">MSI </a></li>
-                </ul>
-            </li>
-            <li><a href="<?php echo BASE_URL; ?>catalogo">Productos</a>
-            
-            </li>
-            <li><a href="#">Promos</a>
-            
-            </li>
-            <li><a href="<?php echo BASE_URL; ?>Mediosdepago">Medios de pago</a>
-            
-            </li>
-            <li><a href="<?php echo BASE_URL; ?>TerminosyCondiciones">Términos y condiciones</a>
-            
-            </li>
-        </ul>
-    </nav>
+    </div>
+</nav>
