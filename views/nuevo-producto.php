@@ -31,3 +31,5 @@
         <input type="submit" value="Registrar Producto">
     </div>
 </form>
+
+<script src="<?php echo BASE_URL;?>views/js/functions_productos.js"></script>
