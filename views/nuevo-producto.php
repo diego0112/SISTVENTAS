@@ -1,4 +1,4 @@
-<form action="" class="form-control">
+<form action="" class="form-control" style="display:flex; justify-content:center; width:50%;">
     <div class="form-group">
     <label for="">Codigo:</label>
         <input type="text" placeholder="Codigo" required>
