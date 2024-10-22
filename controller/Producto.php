@@ -16,7 +16,7 @@ if ($tipo =="registrar") {
         $stock = $_POST['stock'];
         $categoria = $_POST['categoria'];
         $fecha_ven = $_POST['fecha_ven'];
-        $imagen = $_POST['imagen'];
+        $img = $_POST['imagen'];
         $proveedor = $_POST['proveedor'];
     
 
@@ -25,7 +25,7 @@ if ($tipo =="registrar") {
                 $arr_Respuesta = array
                 ('status'=>false, 'mensaje'=>'Error, campos vacios');
         } else {
-            $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $fecha_ven, $imagen, $proveedor);
+            $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $fecha_ven, $img, $proveedor);
         }
     }
 }
