@@ -15,7 +15,7 @@ if ($tipo =="registrar") {
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
         $categoria = $_POST['categoria'];
-        $img = $_POST['imagen'];
+        $img = $_POST['img'];
         $proveedor = $_POST['proveedor'];
     
 
@@ -31,6 +31,7 @@ if ($tipo =="registrar") {
             }else {
                 $arr_Respuesta = array('status'=>false, 'mensaje'=>'Error al registrar producto');
             }
+            echo json_encode($arr_Respuesta);
         }
     }
 }

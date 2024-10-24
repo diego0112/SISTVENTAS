@@ -1,4 +1,4 @@
-<form id="formRegistrarProd" action="" class="form-control"    >
+<form id="frmRegistrarProd" action="" class="form-control"    >
     <div class="form-group">
         <label for="codigo">Codigo:</label>
         <input id="codigo" name="codigo" type="text" placeholder="codigo" required>
