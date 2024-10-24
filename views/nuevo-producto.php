@@ -19,11 +19,8 @@
         <label for="Categoria">Categoria:</label><br>
         <input id="categoria" name="categoria" type="text" placeholder="Categoria" required>
 
-        <label for="Fecha de Vencimiento">Fecha de Vencimiento:</label><br>
-        <input id="fecha" name="fecha" type="date" placeholder="Fecha de Vencimiento" required>
-
         <label for="img">Imagen:</label><br>
-        <input id="img" name="img" type="text" placeholder="Precio" required>
+        <input id="img" name="img" type="text" placeholder="URL de Imagen" required>
 
         <label for="proveedor">proveedor:</label><br>
         <input id="proveedor" name="proveedor" type="text" placeholder="Proveedor" required>
