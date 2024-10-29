@@ -17,7 +17,9 @@
         <input id="stock" name="stock" type="number" placeholder="Stock inicial" required>
 
         <label for="Categoria">Categoria:</label><br>
-        <input id="categoria" name="categoria" type="text" placeholder="Categoria" required>
+        <select name="categoria" id="categoria" required >
+            <option value="">Seleccione una categoria</option>
+        </select>
 
         <label for="img">Imagen:</label><br>
         <input id="img" name="img" type="text" placeholder="URL de Imagen" required>
