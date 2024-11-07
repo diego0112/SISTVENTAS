@@ -5,10 +5,10 @@ async function registrar_producto() {
     let precio = document.querySelector('#precio').value;
     let stock = document.querySelector('#stock').value;
     let categoria = document.querySelector('#categoria').value;
-    let img = document.querySelector('#img').value;
+    let imagen = document.querySelector('#imagen').value;
     let proveedor = document.querySelector('#proveedor').value;
     if (codigo=="" || nombre =="" || detalle=="" || precio =="" || stock ==""
-        || categoria =="" || img =="" || proveedor =="") {
+        || categoria =="" || imagen =="" || proveedor =="") {
             alert("Error!!, Campos vacíos");
             return;
     }
@@ -38,21 +38,21 @@ async function registrar_producto() {
 //FUNCION PARA LLAMAR AL CONTROLADOR DE CATEGORIA(FUNCION DIRECTA)
 async function listar_categorias(){
     try {
-        let respuesta = await fetch(base_url+'controller/Categoria.php?tipo=listar');
+        let respuesta = await fetch(base_url+'/controller/Categoria.php?tipo=listar');
         json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;
             datos.forEach(element => {
-                $('#categoria').append($('<option />'),{
-                    text: `$(element.nombre)`,
-                    value: `$(element.id)`
-                });
+                $('#categoria').append($('<option/>',{
+                    text: `${element.nombre}`,
+                    value: `${element.id}`
+                }));
             });
         }
 
-            console.log(respuesta);
+        console.log(respuesta);
         
     }catch (e) {
-        console.log("Oops, ocurrio un error"+e)
+        console.error("Oops, ocurrio un error: " + e)
     }
 }

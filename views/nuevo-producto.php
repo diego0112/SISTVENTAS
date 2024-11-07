@@ -16,13 +16,13 @@
         <label for="stock">Stock Inicial:</label><br>
         <input id="stock" name="stock" type="number" placeholder="Stock inicial" required>
 
-        <label for="Categoria">Categoria:</label><br>
+        <label for="categoria">Categoria:</label><br>
         <select name="categoria" id="categoria" required >
             <option value="">Seleccione una categoria</option>
         </select>
 
-        <label for="img">Imagen:</label><br>
-        <input id="img" name="img" type="text" placeholder="URL de Imagen" required>
+        <label for="imagen">Imagen:</label><br>
+        <input id="imagen" name="imagen" type="text" placeholder="URL de Imagen" required>
 
         <label for="proveedor">proveedor:</label><br>
         <input id="proveedor" name="proveedor" type="text" placeholder="Proveedor" required>
