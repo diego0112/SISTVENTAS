@@ -53,6 +53,6 @@ async function listar_categorias(){
         console.log(respuesta);
         
     }catch (e) {
-        console.error("Oops, ocurrio un error: " + e)
+        console.error("Oops, ocurrio un error al listar categorias: " + e)
     }
 }
