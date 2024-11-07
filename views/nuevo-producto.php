@@ -16,10 +16,12 @@
         <label for="stock">Stock Inicial:</label><br>
         <input id="stock" name="stock" type="number" placeholder="Stock inicial" required>
 
-        <label for="categoria">Categoria:</label><br>
-        <select name="categoria" id="categoria" required >
-            <option value="">Seleccione una categoria</option>
-        </select>
+        <div class="campo-contenedor">
+            <label for="categoria" class="etiqueta-flotante">Categoría:</label>
+            <select name="categoria" id="categoria"  class="entrada-destacada">
+                <option  class="entrada-destacada" >Seleccione</option>
+            </select>
+        </div>
 
         <label for="imagen">Imagen:</label><br>
         <input id="imagen" name="imagen" type="text" placeholder="URL de Imagen" required>

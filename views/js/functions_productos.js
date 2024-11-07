@@ -36,23 +36,25 @@ async function registrar_producto() {
 }
 
 //FUNCION PARA LLAMAR AL CONTROLADOR DE CATEGORIA(FUNCION DIRECTA)
-async function listar_categorias(){
+//  listar_categorias registrados en la base de datos
+
+async function listar_categorias() {
     try {
-        let respuesta = await fetch(base_url+'/controller/Categoria.php?tipo=listar');
+        // envia datos hacia el controlador
+        let respuesta = await fetch(base_url +
+            'controller/Categoria.php?tipo=listar');
         json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;
             datos.forEach(element => {
-                $('#categoria').append($('<option/>',{
+                $('#categoria').append($('<option />', {
                     text: `${element.nombre}`,
                     value: `${element.id}`
-                }));
+                })); 
             });
         }
-
         console.log(respuesta);
-        
-    }catch (e) {
-        console.error("Oops, ocurrio un error al listar categorias: " + e)
+    } catch (e) {
+        console.e("Error al cargar categorias" + e)
     }
 }

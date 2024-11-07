@@ -1,5 +1,6 @@
 <?php
-require_once('../library/conexion.php');
+
+require_once "../library/conexion.php";
 
 class CategoriaModel
 {
@@ -9,17 +10,14 @@ class CategoriaModel
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
-
     public function obtener_categorias()
     {
-        $arr_Respuesta = [];
-        $respuesta = $this->conexion->query("SELECT * FROM categoria");
+        $arrRespuesta = array();
+        $respuesta = $this->conexion->query(" SELECT * FROM categoria");
         while ($objeto = $respuesta->fetch_object()) {
-            array_push($arr_Respuesta, $objeto);
+            array_push($arrRespuesta, $objeto);
+            
         }
-        return $arr_Respuesta;
+        return $arrRespuesta;
     }
 }
-
-
-?>
