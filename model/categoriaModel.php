@@ -20,4 +20,17 @@ class CategoriaModel
         }
         return $arrRespuesta;
     }
+
+    public function registrar_categoria($nombre,$detalle){
+        $sql = $this->conexion->query("CALL insertar_categoria
+        ('{$nombre}', '{$detalle}')");
+       
+        if ($sql == false) {
+            print_r(value: $this->conexion->error);
+        }
+
+
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
 }

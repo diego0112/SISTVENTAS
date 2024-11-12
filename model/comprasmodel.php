@@ -1,6 +1,6 @@
 <?php
 require_once "../library/conexion.php";
-class ProductoModel
+class ComprasModel
 {
     private $conexion;
     function __construct()
@@ -8,19 +8,17 @@ class ProductoModel
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
-    public function registrarProducto(
-        $codigo,
-        $nombre,
-        $detalle,
+    public function registrarCompras(
+        $producto,
+        $cantidad,
         $precio,
-        $stock,
-        $categoria,
-        $imagen,
-        $proveedor
+        $fecha_compra,
+    
+        $trabajador
+
     ) {
-        $sql = $this->conexion->query("CALL insertProducto
-        ('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}',
-         '{$categoria}', '{$imagen}', '{$proveedor}' )");
+        $sql = $this->conexion->query("CALL insertar_compra
+        ('{$producto}', '{$cantidad}', '{$precio}', '{$fecha_compra}', '{$trabajador}')");
        
          if ($sql == false) {
             print_r(value: $this->conexion->error);
@@ -30,10 +28,7 @@ class ProductoModel
         $sql = $sql->fetch_object();
         return $sql;
     }
-    public function actualizar_imagen($id,  $imagen){
-        $sql = $this->conexion->query("UPDATE producto SET imagen = '{$imagen}' WHERE id = '{$id}'");
-        return 1;
-    }
+    
     public function obtener_productos()
     {
         $arrRespuesta = array();

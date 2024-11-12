@@ -4,7 +4,8 @@ class vistaModelo{
 
     protected static function obtener_vista($vista){
     $palabras_permitidas =['login', 'usuario', 'producto', 'index', 'catalogo', 'contacto', 'detalledecarrito'
-     , 'DetalleProducto', 'nuevo-producto', 'Mediosdepago', 'NuestraEmpresa', 'reclamaciones', 'TerminosyCondiciones'] ;
+     , 'DetalleProducto', 'nuevo-producto', 'Mediosdepago', 'NuestraEmpresa', 'reclamaciones', 'TerminosyCondiciones', 'nueva-categoria', 'nueva-compra',
+     'nuevo-persona'] ;
         if (in_array($vista, $palabras_permitidas)){
             if(is_file("./views/".$vista.".php")){
                 $contenido = "./views/".$vista.".php";

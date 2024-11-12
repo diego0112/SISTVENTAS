@@ -64,4 +64,29 @@ if ($tipo == "registrar") {
         }
     }
 }
+
+
+$tipo = $_REQUEST['tipo'];
+
+if ($tipo == "listar") {
+    //respuesta 
+    $arr_Respuesta = array('status' => false, 'contenido' => '');
+    $arr_Producto = $objProducto->obtener_productos();
+    if (!empty($arr_Producto)) {
+        // recorremos el array para agregar las ociones de la categoria
+        for ($i = 0; $i < count($arr_Producto); $i++) {
+            $id_producto = $arr_Producto[$i]->id;
+            $nombre = $arr_Producto[$i]->nombre;
+            $opciones = '<a href="" class="btn btn-success" ><i class="fa fa-pencil"> wwss</i></a>
+             <a href="" class="btn btn-danger"><i class="fa fa-trash">wswsws</i></a>';
+             $arr_Producto[$i]->options = $opciones;
+        }
+        $arr_Respuesta['status'] = true;
+        $arr_Respuesta['contenido'] = $arr_Producto;
+
+    }
+
+    echo json_encode($arr_Respuesta);
+}
+
 ?>
