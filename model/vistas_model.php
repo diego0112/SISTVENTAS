@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 class vistaModelo{
 
@@ -6,7 +7,10 @@ class vistaModelo{
     $palabras_permitidas =['login', 'usuario', 'producto', 'index', 'catalogo', 'contacto', 'detalledecarrito'
      , 'DetalleProducto', 'nuevo-producto', 'Mediosdepago', 'NuestraEmpresa', 'reclamaciones', 'TerminosyCondiciones', 'nueva-categoria', 'nueva-compra',
      'nuevo-persona'] ;
-        if (in_array($vista, $palabras_permitidas)){
+     if (isset($_SESSION['sesion_ventas_id'])) {
+        return "login";
+     }   
+     if (in_array($vista, $palabras_permitidas)){
             if(is_file("./views/".$vista.".php")){
                 $contenido = "./views/".$vista.".php";
 

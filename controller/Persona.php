@@ -16,7 +16,8 @@ if ($tipo == "registrar") {
         $codigo_postal = $_POST['codigo_postal'];
         $direccion = $_POST['direccion'];
         $rol = $_POST['rol'];
-        $password = $_POST['password'];
+
+        $password = password_hash($_POST['nro_identidad'], PASSWORD_DEFAULT);
 
         if (
             $nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" || $departamento == ""
@@ -35,7 +36,7 @@ if ($tipo == "registrar") {
                 $codigo_postal,
                  $direccion,
                 $rol,
-                 $password
+                $password
                 );
 
             if ($arrPersona->id > 0) {

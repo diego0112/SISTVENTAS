@@ -35,8 +35,8 @@
                
             </select>
 
-        <label for="password">password:</label><br>
-        <input id="password" name="password" type="password" placeholder="password" required>
+        <!-- <label for="password">password:</label><br>
+        <input id="password" name="password" type="password" placeholder="password" required> -->
 
 
         <button type="button" class="btn btn-success" onclick="registrar_personas();">Registrar</button>

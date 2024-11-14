@@ -24,3 +24,4 @@
         </div>
     </main>
     
+    <script src="<?php echo BASE_URL;?>views/js/functions_login.js"></script>

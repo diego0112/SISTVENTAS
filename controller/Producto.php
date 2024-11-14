@@ -78,7 +78,7 @@ if ($tipo == "listar") {
             $id_producto = $arr_Producto[$i]->id;
             $nombre = $arr_Producto[$i]->nombre;
             $opciones = '<a href="" class="btn btn-success" ><i class="fa fa-pencil"> wwss</i></a>
-             <a href="" class="btn btn-danger"><i class="fa fa-trash">wswsws</i></a>';
+                        <a href="" class="btn btn-danger"><i class="fa fa-trash">wswsws</i></a>';
              $arr_Producto[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
