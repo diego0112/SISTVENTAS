@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,6 +30,7 @@
         <div class="cart">
         <a href="<?php echo BASE_URL; ?>detalledecarrito"><button class="carrito" type="button">S/. 200,30</button></a>
                 <button  type="button"><a id="iniciar" href="<?php echo BASE_URL; ?>login">Iniciar sesión</a></button>
+                <li  type="nav2"><a id="cerrar" onclick="cerrar_sesion();">Cerrar sesión</a></li>
         </div>
     </header>
     <nav>
