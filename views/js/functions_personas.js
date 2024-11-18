@@ -9,10 +9,10 @@ async function registrar_personas() {
     let codigo_postal = document.querySelector('#codigo_postal').value;
     let direccion = document.querySelector('#direccion').value;
     let rol = document.querySelector('#rol').value;
-    let password = document.querySelector('#password').value;
+    // let password = document.querySelector('#password').value;
    
     if (nro_identidad == "" || razon_social == "" || telefono == "" || correo == "" || departamento == ""
-        || provincia == "" || distrito == "" || codigo_postal == "" || direccion == "" || rol == "" || password == "") {
+        || provincia == "" || distrito == "" || codigo_postal == "" || direccion == "" || rol == "" /* || password == "" */) {
         alert("Error!!, Campos vacíos");
         return;
     }

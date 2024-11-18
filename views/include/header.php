@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="./views/index.php">
 <script>
     const base_url = '<?php echo BASE_URL; ?>';
-</script>
+  </script>
 </head>
 <body>
     <header>
@@ -26,11 +26,16 @@
             <input type="text" placeholder="Nombre del Producto">
             <button type="submit">Buscar</button>
         </div>
-
-        <div class="cart">
-        <a href="<?php echo BASE_URL; ?>detalledecarrito"><button class="carrito" type="button">S/. 200,30</button></a>
+       <div class="cart">
+        <button class="carrito" type="button">S/. 200,30</button></a>
                 <button  type="button"><a id="iniciar" href="<?php echo BASE_URL; ?>login">Iniciar sesión</a></button>
-                <li  type="nav2"><a id="cerrar" onclick="cerrar_sesion();">Cerrar sesión</a></li>
+               
+        </div>
+        <div class="cart">
+        <?php echo isset($_SESSION['sesion_venta_nombres']) ? $_SESSION['sesion_venta_nombres'] : 'Usuario'; ?>
+        </div>
+        <div class="cart">
+        <button class="carrito" type="button">  <li class="dropdown-item" href="#" onclick="cerrar_sesion();">Cerrar Sesión</li></button>
         </div>
     </header>
     <nav>

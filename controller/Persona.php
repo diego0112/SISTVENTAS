@@ -17,11 +17,11 @@ if ($tipo == "registrar") {
         $direccion = $_POST['direccion'];
         $rol = $_POST['rol'];
 
-        $password = password_hash($nro_identidad, PASSWORD_DEFAULT);
+        $password_secure = password_hash($nro_identidad, PASSWORD_DEFAULT);
 
         if (
             $nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" || $departamento == ""
-        || $provincia == "" || $distrito == "" || $codigo_postal == "" || $direccion == "" || $rol == "" || $password == ""
+        || $provincia == "" || $distrito == "" || $codigo_postal == "" || $direccion == "" || $rol == "" || $password_secure == ""
         ) {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
         } else {
@@ -36,7 +36,7 @@ if ($tipo == "registrar") {
                 $codigo_postal,
                  $direccion,
                 $rol,
-                $password
+                $password_secure
                 );
 
             if ($arrPersona->id > 0) {
@@ -50,5 +50,56 @@ if ($tipo == "registrar") {
             echo json_encode($arr_Respuesta);
         }
     }
+
+}
+
+$tipo = $_REQUEST['tipo'];
+
+if ($tipo == "listarproveedor") {
+    // Respuesta inicial
+    $arr_Respuesta = array('status' => false, 'contenido' => '');
+    
+    // Obtener la lista de proveedores
+    $arr_Proveedores = $objPersona->obtener_proveedores();
+    if (!empty($arr_Proveedores)) {
+        // Recorrer el array para agregar las opciones para cada proveedor
+        for ($i = 0; $i < count($arr_Proveedores); $i++) {
+            $id_proveedor = $arr_Proveedores[$i]->id;
+            $razon_social = $arr_Proveedores[$i]->razon_social;
+            $opciones = '<a href="" class="btn btn-success"><i class="fa fa-pencil"> Editar</i></a>
+                         <a href="" class="btn btn-danger"><i class="fa fa-trash"> Eliminar</i></a>';
+            $arr_Proveedores[$i]->options = $opciones;
+        }
+        
+        $arr_Respuesta['status'] = true;
+        $arr_Respuesta['contenido'] = $arr_Proveedores;
+    }
+
+    echo json_encode($arr_Respuesta);
+}
+
+$tipo = $_REQUEST['tipo'];
+
+if ($tipo == "listartrabajador") {
+    // Respuesta inicial
+    $arr_Respuesta = array('status' => false, 'contenido' => '');
+    
+    // Obtener la lista de proveedores
+    $arr_Trabajador = $objPersona->obtener_trabajadores();
+    if (!empty($arr_Trabajador)) {
+        // Recorrer el array para agregar las opciones para cada proveedor
+        for ($i = 0; $i < count($arr_Trabajador); $i++) {
+            $id_trabajador = $arr_Trabajador[$i]->id;
+            $razon_social = $arr_Trabajador[$i]->razon_social;
+            $opciones = '<a href="" class="btn btn-success"><i class="fa fa-pencil"> Editar</i></a>
+                         <a href="" class="btn btn-danger"><i class="fa fa-trash"> Eliminar</i></a>';
+            $arr_Trabajador[$i]->options = $opciones;
+        }
+        
+        $arr_Respuesta['status'] = true;
+        $arr_Respuesta['contenido'] = $arr_Trabajador;
+    }
+
+    echo json_encode($arr_Respuesta);
 }
 

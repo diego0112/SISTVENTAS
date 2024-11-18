@@ -57,7 +57,7 @@ async function listar_productos() {
 }
 async function listar_trabajadores() {
     try {
-        let respuesta = await fetch(base_url + 'controller/trabajador.php?tipo=listar');
+        let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=listartrabajador');
         let json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;

@@ -68,7 +68,7 @@ async function listar_categorias() {
 async function listar_proveedores() {
     try {
         // Envía la solicitud al controlador de proveedores
-        let respuesta = await fetch(base_url + 'controller/Proveedor.php?tipo=listar');
+        let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=listarproveedor');
         let json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;
