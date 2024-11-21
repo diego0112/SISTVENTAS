@@ -8,6 +8,7 @@ class ProductoModel
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
+    
     public function registrarProducto(
         $codigo,
         $nombre,

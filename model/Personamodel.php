@@ -31,6 +31,12 @@ class PersonaModel
         return $sql;
     }
 
+    public function obtener_proveedor($id){
+        $id = $this->conexion->real_escape_string($id);
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE id = '{$id}'");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
     public function buscarPersonaporDNI($nro_identidad){
      $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad = '{$nro_identidad}'");
      $sql = $sql->fetch_object();

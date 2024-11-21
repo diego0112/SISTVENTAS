@@ -1,3 +1,44 @@
+async function listarProductos() {
+    try {
+        
+        let respuesta = await fetch(base_url +
+            'controller/Producto.php?tipo=listar');
+        let json = await respuesta.json();
+        if (json.status) {
+            let datos = json.contenido;
+            let cont = 0;
+            datos.forEach(item => {
+                let nueva_fila = document.createElement("tr");
+                nueva_fila.id = "fila" + item.id; //este es el id que viene de la base de datos
+                cont++; // para ver que se aumenta
+                nueva_fila.innerHTML = ` 
+                        <th>${cont}</th>
+                        <td>${item.codigo}</td>
+                        <td>${item.nombre}</td>
+                        <td>${item.stock}</td>
+                        <td>${item.categoria.nombre}</td>
+                        <td>${item.proveedor.razon_social}</td>
+                        <td>
+                        <button class="btn btn-primary btn-sm" onclick="editarProducto(2)">Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="eliminarProducto(2)">Eliminar</button>
+                        </td>
+                `;
+                document.querySelector('#tbl_producto').appendChild(nueva_fila);
+                
+            });
+            document.getElementById('producto').innerHTML = contenido_select;
+        } else {
+            console.error("Error en la respuesta: " + json.mensaje);
+        }    
+    } catch (e) {
+        console.error("Error al cargar productos: " + e);
+    }
+}
+if (document.querySelector('#tbl_producto')) {
+    listarProductos();
+} 
+
+
 async function registrar_producto() {
     let codigo = document.getElementById('codigo').value;
     let nombre = document.querySelector('#nombre').value;

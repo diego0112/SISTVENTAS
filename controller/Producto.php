@@ -1,10 +1,14 @@
 <?php
 require_once('../model/productoModel.php');
+require_once('../model/categoriaModel.php');
+require_once('../model/Personamodel.php');
 
+$tipo  = $_REQUEST['tipo'];
 //instancio la clase  productoModel
 
 $objProducto = new ProductoModel();
-$tipo  = $_REQUEST['tipo'];
+$objCategoria = new CategoriaModel();
+$objPersona = new PersonaModel();
 
 if ($tipo == "registrar") {
     //print_r($_POST);
@@ -68,25 +72,35 @@ if ($tipo == "registrar") {
 
 $tipo = $_REQUEST['tipo'];
 
-if ($tipo == "listar") {
-    //respuesta 
-    $arr_Respuesta = array('status' => false, 'contenido' => '');
-    $arr_Producto = $objProducto->obtener_productos();
-    if (!empty($arr_Producto)) {
-        // recorremos el array para agregar las ociones de la categoria
-        for ($i = 0; $i < count($arr_Producto); $i++) {
-            $id_producto = $arr_Producto[$i]->id;
-            $nombre = $arr_Producto[$i]->nombre;
-            $opciones = '<a href="" class="btn btn-success" ><i class="fa fa-pencil"> wwss</i></a>
-                        <a href="" class="btn btn-danger"><i class="fa fa-trash">wswsws</i></a>';
-             $arr_Producto[$i]->options = $opciones;
-        }
-        $arr_Respuesta['status'] = true;
-        $arr_Respuesta['contenido'] = $arr_Producto;
+    if ($tipo == "listar") {
+            //respuesta 
+            $arr_Respuesta = array('status' => false, 'contenido' => '');
+            $arr_Producto = $objProducto->obtener_productos();
+            if (!empty($arr_Producto)) {
+                // recorremos el array para agregar las ociones de la categoria
+                for ($i = 0; $i < count($arr_Producto); $i++) {
+                    // para cada producto obtenemos la categoria
+                    $id_categoria = $arr_Producto[$i]->id_categoria;
+                    $r_categoria = $objCategoria->obtener_categoria($id_categoria);
+                    $arr_Producto[$i]->categoria = $r_categoria;
+                    
+                    // para cada producto obtenemos proveedor
+                    $id_proveedor = $arr_Producto[$i]->id_proveedor;
+                    $r_proveedor = $objPersona->obtener_proveedor($id_proveedor);
+                    $arr_Producto[$i]->proveedor = $r_proveedor;
 
+                    
+                    $id_producto = $arr_Producto[$i]->id;
+                    $nombre = $arr_Producto[$i]->nombre;
+                    $opciones = '';
+                    $arr_Producto[$i]->options = $opciones;
+                }
+                $arr_Respuesta['status'] = true;
+                $arr_Respuesta['contenido'] = $arr_Producto;
+
+            }
+
+            echo json_encode($arr_Respuesta);
     }
-
-    echo json_encode($arr_Respuesta);
-}
 
 ?>

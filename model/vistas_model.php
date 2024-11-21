@@ -10,6 +10,7 @@ class vistaModelo
             'login',
             'usuario',
             'producto',
+            'productos',
             'index',
             'catalogo',
             'contacto',
@@ -26,9 +27,9 @@ class vistaModelo
             'nuevo-persona',
             'principal'
         ];
-        if (!isset($_SESSION['sesion_venta_id'])) {
+       /* if (!isset($_SESSION['sesion_venta_id'])) {
             return "login";
-        }
+        }*/
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {
                 $contenido = "./views/" . $vista . ".php";
