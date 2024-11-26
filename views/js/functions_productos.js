@@ -1,7 +1,7 @@
 async function listarProductos() {
     try {
         
-        let respuesta = await fetch(base_url +'controller/Producto.php?tipo=listar');
+        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=listar');
         let json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;
