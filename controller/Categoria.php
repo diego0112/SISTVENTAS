@@ -27,6 +27,8 @@ if ($tipo == "listar") {
     echo json_encode($arr_Respuesta);
 }
 
+
+
 $tipo = $_REQUEST['tipo'];
 
 if ($tipo == "registrar") {
