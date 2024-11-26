@@ -25,7 +25,11 @@ class vistaModelo
             'nueva-compra',
             'principal',
             'nuevo-persona',
-            'principal'
+            'principal',
+            'productos',
+            'categorias',
+            'personas',
+            'compras'
         ];
        /* if (!isset($_SESSION['sesion_venta_id'])) {
             return "login";

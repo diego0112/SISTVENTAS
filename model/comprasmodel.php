@@ -39,4 +39,15 @@ class ComprasModel
         }
         return $arrRespuesta;
     }
+    public function obtener_compras()
+    {
+        $arrRespuesta = array();
+        $respuesta = $this->conexion->query(" SELECT * FROM compras");
+        while ($objeto = $respuesta->fetch_object()) {
+            array_push($arrRespuesta, $objeto);
+            
+        }
+        return $arrRespuesta;
+    }
+
 }

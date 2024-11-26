@@ -3,7 +3,31 @@ require_once('../model/Personamodel.php');
 
 
 $objPersona = new PersonaModel();
+
 $tipo  = $_REQUEST['tipo'];
+
+
+if ($tipo == "listar") {
+    //respuesta 
+    $arr_Respuesta = array('status' => false, 'contenido' => '');
+    $arrPersona = $objPersona->obtener_personas();
+    if (!empty($arrPersona)) {
+        
+        for ($i = 0; $i < count($arrPersona); $i++) {
+            $id_categoria = $arrPersona[$i]->id;
+            $nombre = $arrPersona[$i]->razon_social;
+            $opciones = '<a href="#" class="btn btn-success"><i class="fa fa-pencil"></i> </a>
+            <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> </a>';
+            $arrPersona[$i]->options = $opciones;
+        }
+        $arr_Respuesta['status'] = true;
+        $arr_Respuesta['contenido'] = $arrPersona;
+
+    }
+
+    echo json_encode($arr_Respuesta);
+}
+
 if ($tipo == "registrar") {
     if ($_POST) {
         $nro_identidad = $_POST['nro_identidad'];

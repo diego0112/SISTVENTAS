@@ -1,3 +1,63 @@
+
+// Función para listar los productos
+async function listar_compras() {
+    try {
+        let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=listar_compras');
+        let json = await respuesta.json();
+
+        if (json.status) {
+
+            let datos = json.contenido;
+            let cont = 0;
+            // Agregar filas a la tabla
+            datos.forEach(item => {
+                let nueva_fila = document.createElement("tr");
+                nueva_fila.id = "fila" + item.id;
+                cont+=1
+                nueva_fila.innerHTML = `
+                 <tr>
+                        <th>${cont}</th>
+                         <td>${item.producto.nombre}</td>
+                        <td>${item.cantidad}</td>
+                        <td>${item.precio}</td>
+                        <td>${item.fecha_compra}</td>
+                        <td>${item.trabajador.razon_social}</td>
+                        <td>${item.options}</td>
+
+                    </tr>
+                `;
+                document.querySelector("#tbl_compras")
+                .appendChild(nueva_fila);
+                
+            });
+        };
+        console.log(json);
+    } catch (error) {
+        console.error("Error al listar productos" + error);
+    }
+}
+if (document.querySelector('#tbl_compras')) {
+    listar_compras();
+}
+async function listar_trabajadores() {
+    try {
+        let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=listartrabajador');
+        let json = await respuesta.json();
+        if (json.status) {
+            let datos = json.contenido;
+            let contenido_select = '<option value="">Seleccione trabajador</option>';
+            datos.forEach(element => {
+                contenido_select += '<option value="' + element.id + '">' + element.razon_social + '</option>';       
+            });
+            document.getElementById('trabajador').innerHTML = contenido_select;
+        }
+        console.log(respuesta);
+    } catch (e) {
+        console.error("Error al cargar trabajador: " + e);
+    }
+}
+
+
 async function registrar_compra() {
  
     let producto = document.querySelector('#producto').value;
@@ -53,23 +113,6 @@ async function listar_productos() {
         console.log(respuesta);
     } catch (e) {
         console.e("Error al cargar categorias" + e)
-    }
-}
-async function listar_trabajadores() {
-    try {
-        let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=listartrabajador');
-        let json = await respuesta.json();
-        if (json.status) {
-            let datos = json.contenido;
-            let contenido_select = '<option value="">Seleccione trabajador</option>';
-            datos.forEach(element => {
-                contenido_select += '<option value="' + element.id + '">' + element.razon_social + '</option>';       
-            });
-            document.getElementById('trabajador').innerHTML = contenido_select;
-        }
-        console.log(respuesta);
-    } catch (e) {
-        console.error("Error al cargar trabajador: " + e);
     }
 }
 

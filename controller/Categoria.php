@@ -15,7 +15,8 @@ if ($tipo == "listar") {
         for ($i = 0; $i < count($arr_Categorias); $i++) {
             $id_categoria = $arr_Categorias[$i]->id;
             $nombre = $arr_Categorias[$i]->nombre;
-            $opciones = '';
+            $opciones = '<a href="#" class="btn btn-success"><i class="fa fa-pencil"></i> </a>
+            <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> </a>';
             $arr_Categorias[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
