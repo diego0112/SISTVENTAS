@@ -28,9 +28,6 @@ if ($tipo == "listar") {
 }
 
 
-
-$tipo = $_REQUEST['tipo'];
-
 if ($tipo == "registrar") {
     if ($_POST) {
        
