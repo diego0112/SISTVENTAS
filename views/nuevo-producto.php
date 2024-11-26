@@ -23,7 +23,7 @@
             </select>
         </div>
 
-        <label for="imagen">Imagen:</label><br>
+        <label for="">Imagen:</label><br>
         <input id="imagen" name="imagen" type="file" placeholder="URL de Imagen" required>
 
         <div class="campo-contenedor">
