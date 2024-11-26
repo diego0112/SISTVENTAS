@@ -10,7 +10,6 @@ $objProducto = new ProductoModel();
 $objCategoria = new CategoriaModel();
 $objPersona = new PersonaModel();
 
-
 if ($tipo == "listar") {
     //respuesta 
     $arr_Respuesta = array('status' => false, 'contenido' => '');
