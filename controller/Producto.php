@@ -66,9 +66,9 @@ if ($tipo == "registrar") {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
         } else {
             //CARGAR ARCHIVOS
-            $archivo = $_FILES['imagen']['tmp_name'];
+            $archivo = $_FILES['img']['tmp_name'];
             $destino = '../assets/img_productos/';
-            $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
+            $tipoArchivo = strtolower(pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION));
 
             $arrProducto = $objProducto->registrarProducto(
                     $codigo,
