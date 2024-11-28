@@ -17,10 +17,7 @@ async function listarProductos() {
                         <td>${item.stock}</td>
                         <td>${item.categoria.nombre}</td>
                         <td>${item.proveedor.razon_social}</td>
-                        <td>
-                        <button class="btn btn-primary btn-sm" onclick="editarProducto(2)">Editar</button>
-                        <button class="btn btn-danger btn-sm" onclick="eliminarProducto(2)">Eliminar</button>
-                        </td>
+                        <td>${item.options}</td>
                 `;
                 document.querySelector('#tbl_producto').appendChild(nueva_fila);
                 
@@ -71,7 +68,7 @@ async function registrar_producto() {
 
         console.log(json);
     } catch (e) {
-        console.log("Oops, ocurrio un error" + e)
+        console.log("Oops, ocurrio un error" + e);
     }
 }
 
@@ -126,6 +123,36 @@ async function listar_proveedores() {
         console.log(respuesta);
     } catch (e) {
         console.error("Error al cargar proveedores: " + e);
+    }
+}
+
+async function ver_producto(id) {
+    const formData = new FormData();
+    formData.append('id_producto', id);
+    try {
+        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=ver', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: formData
+            
+        }); // Envía la solicitud al controlador de productos
+        let json = await respuesta.json();
+        if (json.status) {
+            document.querySelector('#codigo').value = json.Contenido.codigo;
+            document.querySelector('#nombre').value = json.Contenido.nombre;
+            document.querySelector('#detalle').value = json.Contenido.detalle;
+            document.querySelector('#precio').value = json.Contenido.precio;
+            document.querySelector('#categoria').value = json.Contenido.categoria;
+            document.querySelector('#proveedor').value = json.Contenido.proveedor;
+            
+        }else{
+            window.location = base_url+"productos";
+        }
+        console.log(json);
+
+    } catch (e) {
+        console.log("Oops, ocurrio un error" + e);
     }
 }
 

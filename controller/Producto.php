@@ -30,7 +30,11 @@ if ($tipo == "listar") {
             
             $id_producto = $arr_Producto[$i]->id;
             $nombre = $arr_Producto[$i]->nombre;
-            $opciones = '';
+            //Edita el prodcuto usando el ID
+            $opciones = '<a href="'.BASE_URL.'EditarProducto/'.$id_producto.'" class="btn btn-success"><i class="fa fa-pencil"></i>Editar </a> 
+            
+            <a onclick="EliminarProducto('.$id_producto.'); " class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar </a>';
+            // arriba elimina el producto por id
             $arr_Producto[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -101,6 +105,18 @@ if ($tipo == "registrar") {
     }
 }
 
+if ($tipo == "ver") {
+    //print_r($_POST);
+    $id_producto = $_POST['id_producto'];
+    $arr_Respuesta = $objProducto->verProducto($id_producto);
+    //print_r($arr_Respuesta);
+    if (empty($arr_Respuesta)) {
+        $response = array('status' => false, 'mensaje' => 'Error al buscar producto');
+    }else{
+        $response = array('status' => true, 'mensaje' => "Datos encontrados", "Contenido" => $arr_Respuesta );
+    }
+    echo json_encode($response ); 
+}
 
 
 

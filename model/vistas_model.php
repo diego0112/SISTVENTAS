@@ -29,6 +29,8 @@ class vistaModelo
             'productos',
             'categorias',
             'personas',
+            'EditarProducto',
+            'EliminarProducto',
             'compras'
         ];
        /* if (!isset($_SESSION['sesion_venta_id'])) {
