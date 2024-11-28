@@ -16,13 +16,13 @@ class ProductoModel
         $precio,
         $stock,
         $categoria,
-        $imagen,
+        $img,
         $proveedor, 
         $tipoArchivo
     ) {
         $sql = $this->conexion->query("CALL insertProducto
         ('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}',
-         '{$categoria}', '{$imagen}', '{$proveedor}' , '{$tipoArchivo}' )");
+         '{$categoria}', '{$img}', '{$proveedor}' , '{$tipoArchivo}' )");
        
          if ($sql == false) {
             print_r(value: $this->conexion->error);

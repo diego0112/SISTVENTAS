@@ -55,13 +55,13 @@ if ($tipo == "registrar") {
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
         $categoria = $_POST['categoria'];
-        $imagen = 'imagen';
+        $img = 'imagen';
         $proveedor = $_POST['proveedor'];
 
 
         if (
             $codigo == "" || $nombre == "" || $detalle == "" || $precio == "" || $stock == "" || $nombre == "" ||
-            $categoria == "" ||  $nombre == "" || $imagen == "" || $proveedor == ""
+            $categoria == "" ||  $nombre == "" || $img == "" || $proveedor == ""
         ) {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
         } else {
@@ -77,7 +77,7 @@ if ($tipo == "registrar") {
                     $precio,
                     $stock,
                     $categoria,
-                    $imagen,
+                    $img,
                     $proveedor,
                     $tipoArchivo
                 );
