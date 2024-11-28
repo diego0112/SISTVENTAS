@@ -24,7 +24,7 @@
         </div>
 
         <label for="">Imagen:</label><br>
-        <input id="imagen" name="imagen" type="file" placeholder="URL de Imagen" required>
+        <input id="img" name="imagen" type="file" placeholder="URL de Imagen" required>
 
         <div class="campo-contenedor">
             <label for="rpoveedor" class="etiqueta-flotante">Proveedor:</label>
