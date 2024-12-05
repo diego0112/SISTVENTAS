@@ -119,5 +119,49 @@ if ($tipo == "ver") {
 }
 
 
+//ACTUALIZAR PRODUCTO
+if ($tipo == "actualizar") {
+    if ($_POST) {
+        $id_producto = $_POST['id_producto'];
+        $img = $_POST['img'];
+        $codigo = $_POST['codigo'];
+        $nombre = $_POST['nombre'];
+        $detalle = $_POST['detalle'];
+        $precio = $_POST['precio'];
+        $categoria = $_POST['categoria'];
+        $proveedor = $_POST['proveedor'];
+
+        if ($codigo == "" || $nombre == "" || $detalle == "" || $precio == "" || $categoria == "" || $proveedor == "") {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
+        } else {
+            $arrProducto = $objProducto->actualizar_Producto($id_producto, $codigo, $nombre, $detalle, $precio, $categoria, $proveedor);
+            if ($arrProducto) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Producto actualizado con éxito');
+
+                // Funcion para eliminar la imagen por ID
+                if ($_FILES['img'] ['tmp_name']!= "") {
+                    unlink('../assets/img_productos/'.$img);
+                    //CARGAR ARCHIVOS
+                    $archivo = $_FILES['img']['tmp_name'];
+                    $destino = '../assets/img_productos/';
+                    $tipoArchivo = strtolower(pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION));
+                    if (move_uploaded_file($archivo, $destino.''.$id_producto.'.'.$tipoArchivo)) {
+                    }
+
+                }
+
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al actualizar el producto');
+            }
+        }
+        echo json_encode($arr_Respuesta);
+    }
+}
+
+
+if ($tipo == "eliminar") {
+    
+}
+
 
 ?>

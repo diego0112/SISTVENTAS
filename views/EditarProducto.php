@@ -1,7 +1,13 @@
-<form id="frmRegistrarProd" action="" class="form-control"    >
+<link rel="stylesheet" href="../css/style.css">
+<form id="frmActualizarProd" action="" class="form-control">
+<!-- Inputs ocultos-->
+    <input type="hidden" id="id_producto" name="id_producto" >
+    <input type="hidden" id="img" name="img" >
+
+    
     <div class="form-group">
         <label for="codigo">Codigo:</label>
-        <input id="codigo" name="codigo" type="text" placeholder="codigo" required>
+        <input id="codigo" name="codigo" type="text" placeholder="codigo" readonly>
 
         
         <label for="Nombre">Nombre:</label><br>
@@ -20,15 +26,18 @@
             </select>
         </div>
 
+        <label for="">Imagen:</label><br>
+        <input id="img" name="img" type="file" placeholder="URL de Imagen" required>
+
         <div class="campo-contenedor">
             <label for="rpoveedor" class="etiqueta-flotante">Proveedor:</label>
             <select name="proveedor" id="proveedor"  class="entrada-destacada">
                 <option  class="entrada-destacada" >Seleccione</option>
             </select>
-        </div>
+            </div>
 
-        <button type="button" class="btn btn-success" onclick="actualizar_producto();">Actualizar</button>
-    </div>
+    <button type="button" class="btn btn-success" onclick="actualizar_producto();">Actualizar</button>
+</div>
 </form>
 
 <script src="<?php echo BASE_URL;?>views/js/functions_productos.js"></script>

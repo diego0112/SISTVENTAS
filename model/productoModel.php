@@ -60,4 +60,25 @@ class ProductoModel
         return $sql;
     }
 
+
+    // ACTUALIZAR PRODUCTO  
+    public function actualizar_Producto($id, $codigo, $nombre, $detalle, $precio, $categoria, $proveedor) {
+
+        $sql = "UPDATE producto SET codigo = ?, nombre = ?, detalle = ?, precio = ?, id_categoria = ?, id_proveedor = ? WHERE id = ?";
+
+        $sql = $this->conexion->prepare($sql);
+        
+        $sql->bind_param('ssssisi', $codigo, $nombre, $detalle, $precio, $categoria, $proveedor, $id);
+        
+        if ($sql->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
 }
+
+
