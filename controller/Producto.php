@@ -30,10 +30,10 @@ if ($tipo == "listar") {
             
             $id_producto = $arr_Producto[$i]->id;
             $nombre = $arr_Producto[$i]->nombre;
-            //Edita el prodcuto usando el ID
+            //Edita el producto usando el ID
             $opciones = '<a href="'.BASE_URL.'EditarProducto/'.$id_producto.'" class="btn btn-success"><i class="fa fa-pencil"></i>Editar </a> 
             
-            <a onclick="EliminarProducto('.$id_producto.'); " class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar </a>';
+            <a onclick="EliminarProducto('.$id_producto.');" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar </a>';
             // arriba elimina el producto por id
             $arr_Producto[$i]->options = $opciones;
         }
@@ -123,7 +123,7 @@ if ($tipo == "ver") {
 if ($tipo == "actualizar") {
     if ($_POST) {
         $id_producto = $_POST['id_producto'];
-        $img = $_POST['img'];
+        $imagen = $_POST['imagen'];
         $codigo = $_POST['codigo'];
         $nombre = $_POST['nombre'];
         $detalle = $_POST['detalle'];
@@ -138,14 +138,17 @@ if ($tipo == "actualizar") {
             if ($arrProducto) {
                 $arr_Respuesta = array('status' => true, 'mensaje' => 'Producto actualizado con éxito');
 
+
+
                 // Funcion para eliminar la imagen por ID
                 if ($_FILES['img'] ['tmp_name']!= "") {
-                    unlink('../assets/img_productos/'.$img);
+                    unlink('../assets/img_productos/'.$imagen);
                     //CARGAR ARCHIVOS
                     $archivo = $_FILES['img']['tmp_name'];
                     $destino = '../assets/img_productos/';
                     $tipoArchivo = strtolower(pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION));
                     if (move_uploaded_file($archivo, $destino.''.$id_producto.'.'.$tipoArchivo)) {
+                        $arr_Respuesta['mensaje'] .= ' y la imagen fue reemplazada con éxito.';
                     }
 
                 }
@@ -160,8 +163,15 @@ if ($tipo == "actualizar") {
 
 
 if ($tipo == "eliminar") {
-    
-}
+    $id = $_POST['id_producto'];
+    $arr_Respuesta = $objProducto->EliminarProducto($id);
 
+    if (empty($arr_Respuesta)) {
+        echo json_encode(['status' => true, 'mensaje' => 'Producto eliminado con éxito']);
+    } else {
+        echo json_encode(['status' => false, 'mensaje' => 'Error al eliminar el producto']);
+}
+echo json_encode($response);
+}
 
 ?>

@@ -76,6 +76,13 @@ class ProductoModel
             return false;
         }
     }
+    // ELIMINAR PRODUCTO
+            public function EliminarProducto($id)
+        {
+            $sql = $this->conexion->query("CALL EliminarProducto('{$id}')");
+            $sql = $sql->fetch_object();
+            return $sql;
+        }
 
 
 

@@ -2,7 +2,7 @@
 <form id="frmActualizarProd" action="" class="form-control">
 <!-- Inputs ocultos-->
     <input type="hidden" id="id_producto" name="id_producto" >
-    <input type="hidden" id="img" name="img" >
+    <input type="hidden" id="imagen" name="imagen" >
 
     
     <div class="form-group">
