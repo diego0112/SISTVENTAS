@@ -30,8 +30,8 @@ if ($tipo == "listar_compras") {
  
           $id_Compras = $arr_Compras[$i]->id;
          
-          $opciones = '<a href="#" class="btn btn-success"><i class="fa fa-pencil"></i> </a>
-                      <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> </a>';
+          $opciones = '<a href="' . BASE_URL . 'EditarCompra/' . $id_Compras . '" class="btn btn-success"><i class="fa fa-pencil"> </i>Editar </a>
+                        <button onclick="EliminarCompra(' . $id_Compras . ');" class="btn btn-danger"><i class="fa fa-ban"></i>Eliminar</button>';
           $arr_Compras[$i]->options = $opciones;
        }
        $arr_Respuesta['status'] = true;
@@ -75,4 +75,57 @@ if ($tipo == "registrar") {
             echo json_encode($arr_Respuesta);
         }
     }
+}
+
+if ($tipo == "ver_compras") {
+    $id_Compras = $_POST['id_compra'];
+    $arr_Respuesta = $objCompras->verCompras($id_Compras);
+    if (empty($arr_Respuesta)) {
+       $response = array('status' => false, 'mensaje' => 'Error, no hay información');
+    } else {
+       $response = array('status' => true, 'mensaje' => 'Datos encontrados', 'contenido' => $arr_Respuesta);
+    }
+    echo json_encode($response);
+ }
+ 
+ 
+ if ($tipo == "actualizar_compra") {
+    if ($_POST) {
+        $id_compra = $_POST['id_compra'];
+        $producto = $_POST['producto'];
+        $cantidad = $_POST['cantidad'];
+        $precio = $_POST['precio'];
+        $trabajador = $_POST['trabajador'];
+      /*   $estado = $_POST['estado']; // Obtener el estado
+  */
+        if ($producto == '' || $cantidad == '' || $precio == '' || $trabajador == '') {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
+        } else {
+            $arrCompra = $objCompras->actualizar_compra($id_compra, $producto, $cantidad, $precio, $trabajador,/*  $estado */); // Pasar el estado
+            if ($arrCompra) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualización Exitosa');
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+            }
+        }
+        echo json_encode($arr_Respuesta);
+    }
+ }
+
+
+ if ($tipo == "EliminarCompra") {
+  
+        $id_Compras = $_POST['id_compra'];
+        $arr_Respuesta = $objCompras->eliminarcompra($id_Compras);
+        // Verificar si la categoría tiene productos asociados
+        if (empty($arr_Respuesta)) {
+        } else {
+            if ($arr_Respuesta) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+            }
+        }
+        echo json_encode($arr_Respuesta);
+    
 }

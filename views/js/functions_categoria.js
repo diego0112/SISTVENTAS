@@ -43,9 +43,9 @@ async function registrar_categoria() {
         });
         json = await respuesta.json();
         if (json.status) {
-            swal("registro", json.mensaje, "success");
+            swal.fire("Registro", json.mensaje, "success");
         } else {
-            swal("Registro", json.mensaje, "error");
+            swal.fire("Registro", json.mensaje, "error");
         }
 
         console.log(json);
@@ -53,6 +53,7 @@ async function registrar_categoria() {
         console.log("Oops, ocurrio un error" + e)
     }
 }
+
 
 async function listarCategoria() {
     try {
@@ -103,9 +104,9 @@ if (document.querySelector('#tbl_categorias') != null) {
         });
         let json = await respuesta.json();
         if (json.status) {
-            swal("Actualización", json.mensaje, "success");
+            swal.fire("Actualización", json.mensaje, "success");
         } else {
-            swal("Actualización", json.mensaje, "error");
+            swal.fire("Actualización", json.mensaje, "error");
         }
 
         console.log(json);
@@ -117,44 +118,44 @@ if (document.querySelector('#tbl_categorias') != null) {
 
 
 //ELIMINAR CATEGORIA
+
+
 async function eliminar_categoria(id) {
-    swal({
-        title: "¿Estás seguro de que deseas eliminar este producto?",
+    swal.fire({
+        title: '¿Está seguro de eliminar la categoría?',
         text: "",
-        icon: "warning",
+        icon: 'warning',
+        showCancelButton: true,
+     
         buttons: true,
         dangerMode: true
-    }).then((willDelete)=> {
-        if (willDelete) {
-            fnt_eliminar(id);
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fnt_eliminar_categoria(id);
         }
+    });
 
-    })
+    async function fnt_eliminar_categoria(id) {
+        const formData = new FormData();
+        formData.append('id_categoria', id);
 
-async function fnt_eliminar(id) {
-    const formData = new FormData();
-    formData.append("id_producto", id);
-
-    try {
-        let respuesta = await fetch(base_url + "controller/Producto.php?tipo=eliminar", {
-            method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            body: formData
-        });
-
-        json = await respuesta.json();
-
-        if (json.status) {
-            swal("Eliminar", "Eliminado Correctamente", "success");
-            document.querySelector('#fila' + id).remove(); // Elimina la fila del DOM
-        } else {
-            swal('Eliminar', 'Eliminado Correctamente', 'success');
+        try {
+            let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=eliminar_categoria', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: formData
+            });
+            let json = await respuesta.json();
+            if (json.status) {
+                swal.fire("Eliminación exitosa", json.mensaje, 'success');
+                document.querySelector(`#fila${id}`).remove();
+            } else {
+                swal.fire("Eliminación fallida", json.mensaje, 'error');
+            }
+            console.log(json);
+        } catch (error) {
+            console.error("Error al eliminar categoría: " + error);
         }
-    } catch (e) {
-        console.error("Error al eliminar el producto: " + e);
     }
-
-}
-
 }

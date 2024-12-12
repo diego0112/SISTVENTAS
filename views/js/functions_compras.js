@@ -81,9 +81,9 @@ async function registrar_compra() {
         });
         json = await respuesta.json();
         if (json.status) {
-            swal("registro", json.mensaje, "success");
+            swal.fire("registro", json.mensaje, "success");
         } else {
-            swal("Registro", json.mensaje, "error");
+            swal.fire("Registro", json.mensaje, "error");
         }
 
         console.log(json);
@@ -148,10 +148,9 @@ async function ver_compras(id) {
 }
 
 async function actualizar_compra() {
-    const datos = new FormData(document.getElementById('frm_editar'));
+    const datos = new FormData(document.getElementById('frmEditarCompra'));
     datos.append('id_compra', document.getElementById('id_compra').value); // Asegúrate de que el id_compra se envíe
-/*     datos.append('estado', document.getElementById('estado').value); // Enviar el estado
- */
+
     try {
         let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=actualizar_compra', {
             method: 'POST',
@@ -171,9 +170,9 @@ async function actualizar_compra() {
     }
 }
 
-async function deshabilitar_compra(id) {
+async function EliminarCompra(id) {
     swal.fire({
-        title: '¿Está seguro de deshabilitar la compra?',
+        title: '¿Está seguro de eliminar la compra?',
         text: "",
         icon: 'warning',
         showCancelButton: true,
@@ -181,16 +180,16 @@ async function deshabilitar_compra(id) {
         dangerMode: true
     }).then((result) => {
         if (result.isConfirmed) {
-            fnt_deshabilitar_compra(id);
+            fnt_EliminarCompra(id);
         }
     });
 
-    async function fnt_deshabilitar_compra(id) {
+    async function fnt_EliminarCompra(id) {
         const formData = new FormData();
         formData.append('id_compra', id);
 
         try {
-            let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=deshabilitar_compra', {
+            let respuesta = await fetch(base_url + 'controller/Compras.php?tipo=EliminarCompra', {
                 method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -198,10 +197,10 @@ async function deshabilitar_compra(id) {
             });
             let json = await respuesta.json();
             if (json.status) {
-                swal.fire("Deshabilitación exitosa", json.mensaje, 'success');
+                swal.fire("Eliminacion exitosa", json.mensaje, 'success');
                 document.querySelector(`#fila${id}`).remove(); // Eliminar la fila de la tabla
             } else {
-                swal.fire("Deshabilitación fallida", json.mensaje, 'error');
+                swal.fire("Eliminacion fallida", json.mensaje, 'error');
             }
             console.log(json);
         } catch (error) {

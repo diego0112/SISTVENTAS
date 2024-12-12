@@ -22,17 +22,16 @@ if ($tipo == "listar") {
     $arr_Respuesta = array('status' => false, 'contenido' => '');
     $arrPersona = $objPersona->obtener_personas();
     if (!empty($arrPersona)) {
-        
+
         for ($i = 0; $i < count($arrPersona); $i++) {
             $id_Persona = $arrPersona[$i]->id;
             $nombre = $arrPersona[$i]->razon_social;
             $opciones = '<a href="' . BASE_URL . 'Editarpersona/' . $id_Persona . '" class="btn btn-success"><i class="fa fa-pencil"> </i> </a>
-            <button onclick="eliminar_persona(' . $id_Persona . ');" class="btn btn-danger"><i class="fa fa-trash"></i></button>';
+           <button onclick="eliminarPersona(' . $id_Persona . ');" class="btn btn-danger"><i class="fa fa-trash"></i></button>';
             $arrPersona[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
         $arr_Respuesta['contenido'] = $arrPersona;
-
     }
 
     echo json_encode($arr_Respuesta);
@@ -55,36 +54,32 @@ if ($tipo == "registrar") {
 
         if (
             $nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" || $departamento == ""
-        || $provincia == "" || $distrito == "" || $codigo_postal == "" || $direccion == "" || $rol == "" || $password_secure == ""
+            || $provincia == "" || $distrito == "" || $codigo_postal == "" || $direccion == "" || $rol == "" || $password_secure == ""
         ) {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
         } else {
             $arrPersona = $objPersona->registrarPersona(
                 $nro_identidad,
-                $razon_social, 
-                 $telefono,
+                $razon_social,
+                $telefono,
                 $correo,
-                 $departamento,
-                 $provincia,
-                 $distrito,
+                $departamento,
+                $provincia,
+                $distrito,
                 $codigo_postal,
-                 $direccion,
+                $direccion,
                 $rol,
                 $password_secure
-                );
+            );
 
             if ($arrPersona->id > 0) {
-                $arr_Respuesta = array('status' => true, 'mensaje' => 'Producto registrado con exito');
-
-        
-
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Persona registrada con exito');
             } else {
                 $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al registrar producto');
             }
             echo json_encode($arr_Respuesta);
         }
     }
-
 }
 
 $tipo = $_REQUEST['tipo'];
@@ -92,7 +87,7 @@ $tipo = $_REQUEST['tipo'];
 if ($tipo == "listarproveedor") {
     // Respuesta inicial
     $arr_Respuesta = array('status' => false, 'contenido' => '');
-    
+
     // Obtener la lista de proveedores
     $arr_Proveedores = $objPersona->obtener_proveedores();
     if (!empty($arr_Proveedores)) {
@@ -104,7 +99,7 @@ if ($tipo == "listarproveedor") {
                          <a href="" class="btn btn-danger"><i class="fa fa-trash"> Eliminar</i></a>';
             $arr_Proveedores[$i]->options = $opciones;
         }
-        
+
         $arr_Respuesta['status'] = true;
         $arr_Respuesta['contenido'] = $arr_Proveedores;
     }
@@ -117,7 +112,7 @@ $tipo = $_REQUEST['tipo'];
 if ($tipo == "listartrabajador") {
     // Respuesta inicial
     $arr_Respuesta = array('status' => false, 'contenido' => '');
-    
+
     // Obtener la lista de proveedores
     $arr_Trabajador = $objPersona->obtener_trabajadores();
     if (!empty($arr_Trabajador)) {
@@ -129,7 +124,7 @@ if ($tipo == "listartrabajador") {
                          <a href="" class="btn btn-danger"><i class="fa fa-trash"> Eliminar</i></a>';
             $arr_Trabajador[$i]->options = $opciones;
         }
-        
+
         $arr_Respuesta['status'] = true;
         $arr_Respuesta['contenido'] = $arr_Trabajador;
     }
@@ -141,7 +136,7 @@ if ($tipo == "listartrabajador") {
 if ($tipo == "actualizar_persona") {
     if ($_POST) {
         $id_persona = $_POST['id_persona'];
-        
+
         $razon_social = $_POST['razon_social'];
         $telefono = $_POST['telefono'];
         $correo = $_POST['correo'];
@@ -152,15 +147,17 @@ if ($tipo == "actualizar_persona") {
         $direccion = $_POST['direccion'];
         $rol = $_POST['rol'];
 
-        if ($razon_social == "" || $telefono == "" ||
+        if (
+            $razon_social == "" || $telefono == "" ||
             $correo == "" || $departamento == "" || $provincia == "" ||
             $distrito == "" || $codigo_postal == "" || $direccion == "" ||
-            $rol == "") {
+            $rol == ""
+        ) {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
         } else {
             $arrPersona = $objPersona->actualizarPersona(
                 $id_persona,
-                
+
                 $razon_social,
                 $telefono,
                 $correo,
@@ -187,22 +184,21 @@ if ($tipo == "actualizar_persona") {
     }
 }
 
+
 if ($tipo == "eliminar_persona") {
-    if ($_POST) {
-        $id_persona = $_POST['id_persona'];
-
-        // Verificar si la persona tiene asociaciones
-        if ($objPersona->personaTieneAsociaciones($id_persona)) {
-            $arr_Respuesta = array('status' => false, 'mensaje' => 'No se puede eliminar la persona porque tiene compras o productos asociados');
+  
+    $id_persona = $_POST['id_persona'];
+    $arr_Respuesta = $objPersona->eliminar_Persona($id_persona);
+    // Verificar si la categoría tiene productos asociados
+    if (empty($arr_Respuesta)) {
+    } else {
+        if ($arr_Respuesta) {
+            $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
         } else {
-            $arrPersona = $objPersona->eliminarPersona($id_persona);
-
-            if ($arrPersona) {
-                $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
-            } else {
-                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
-            }
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
         }
-        echo json_encode($arr_Respuesta);
     }
+    echo json_encode($arr_Respuesta);
+
 }
+

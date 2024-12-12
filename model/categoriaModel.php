@@ -58,10 +58,22 @@ class CategoriaModel
         return $sql;
     }
     // ELIMINAR CATEGORIA
-            public function eliminar_categoria($id)
-        {
-            $sql = $this->conexion->query("CALL eliminar_categoria('{$id}')");
-            $sql = $sql->fetch_object();
-            return $sql;
+    public function categoriaTieneProductos($id)
+    {
+        $sql = $this->conexion->query("SELECT COUNT(*) as count FROM producto WHERE id_categoria = '{$id}'");
+        $resultado = $sql->fetch_object();
+        return $resultado->count > 0;
+    }
+    
+    public function eliminarCategoria($id)
+    {
+        $sql = $this->conexion->query("CALL eliminar_categoria('{$id}')");
+
+        if (!$sql) {
+            die("Error en la consulta: " . $this->conexion->error);
         }
+
+        return $sql;
+    }
+
 }

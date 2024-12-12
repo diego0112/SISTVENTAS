@@ -35,7 +35,8 @@ class vistaModelo
             'EliminarProducto',
             'EditarCategoria',
             'eliminar_categoria',
-            'compras'
+            'compras',
+            'admin'
         ];
        /* if (!isset($_SESSION['sesion_venta_id'])) {
             return "login";

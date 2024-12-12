@@ -32,8 +32,9 @@ if ($tipo == "listar") {
             $nombre = $arr_Producto[$i]->nombre;
             //Edita el producto usando el ID
             $opciones = '<a href="'.BASE_URL.'EditarProducto/'.$id_producto.'" class="btn btn-success"><i class="fa fa-pencil"></i>Editar </a> 
-            
-            <a onclick="EliminarProducto('.$id_producto.');" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar </a>';
+                <button onclick="eliminar_producto(' . $id_producto . ');" class="btn btn-danger"><i class="fa fa-trash"></i></button>';
+
+           
             // arriba elimina el producto por id
             $arr_Producto[$i]->options = $opciones;
         }
@@ -162,16 +163,24 @@ if ($tipo == "actualizar") {
 }
 
 
-if ($tipo == "eliminar") {
-    $id = $_POST['id_producto'];
-    $arr_Respuesta = $objProducto->EliminarProducto($id);
+if ($tipo == "eliminar_producto") {
+    if ($_POST) {
+        $id_producto = $_POST['id_producto'];
 
-    if (empty($arr_Respuesta)) {
-        echo json_encode(['status' => true, 'mensaje' => 'Producto eliminado con éxito']);
-    } else {
-        echo json_encode(['status' => false, 'mensaje' => 'Error al eliminar el producto']);
-}
-echo json_encode($response);
+        // Verificar si el producto tiene compras asociadas
+        if ($objProducto->productoTieneCompras($id_producto)) {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'No se puede eliminar el producto porque tiene compras asociadas');
+        } else {
+            $arrProducto = $objProducto->eliminarProducto($id_producto);
+
+            if ($arrProducto) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+            }
+        }
+        echo json_encode($arr_Respuesta);
+    }
 }
 
 ?>

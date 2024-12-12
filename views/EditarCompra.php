@@ -1,3 +1,28 @@
+
+<style>
+    a  {
+          text-decoration: none;
+          color: white;
+        }
+     .action-button {
+            
+            margin: 10px auto;
+            padding: 10px 20px;
+            background: #4e54c8;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .action-button:hover {
+            background: #3c43a4;
+        }
+</style>
+
+<button class="action-button"><a href="<?php echo BASE_URL; ?>compras">Atras</a></button>
 <form id="frmEditarCompra" action="" class="form-control">
     <div class="form-group">   
 
@@ -27,7 +52,7 @@
             </select>
         </div>
 
-        <button type="button" class="btn btn-success" onclick="registrar_compra();">Registrar</button>
+        <button type="button" class="btn btn-success" onclick="actualizar_compra();">Actualizar</button>
     </div>
 </form>
 

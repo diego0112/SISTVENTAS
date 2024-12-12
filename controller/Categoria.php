@@ -27,7 +27,7 @@ if ($tipo == "listar") {
             $id_categoria = $arr_Categorias[$i]->id;
             $nombre = $arr_Categorias[$i]->nombre;
             $opciones = '<a href="'.BASE_URL.'EditarCategoria/'.$id_categoria.'" class="btn btn-success"><i class="fa fa-pencil"></i>Editar </a>
-            <a onclick="EliminarCategoria('.$id_categoria.');" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar </a>';
+           <button onclick="eliminar_categoria(' . $id_categoria . ');" class="btn btn-danger value="sss"><i class="fa fa-trash"></i>Eliminar</button>';
             $arr_Categorias[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -91,14 +91,22 @@ if ($tipo == "actualizar") {
 }
 
 
-if ($tipo == "eliminar") {
-    $id = $_POST['id_categoria'];
-    $arr_Respuesta = $objCategoria->eliminar_categoria($id);
+if ($tipo == "eliminar_categoria") {
+    if ($_POST) {
+        $id_categoria = $_POST['id_categoria'];
 
-    if (empty($arr_Respuesta)) {
-        echo json_encode(['status' => true, 'mensaje' => 'Categoria eliminada con éxito']);
-    } else {
-        echo json_encode(['status' => false, 'mensaje' => 'Error al eliminar la Categoria']);
-}
-echo json_encode($response);
+        // Verificar si la categoría tiene productos asociados
+        if ($objCategoria->categoriaTieneProductos($id_categoria)) {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'No se puede eliminar la categoría porque tiene productos asociados');
+        } else {
+            $arrCategoria = $objCategoria->eliminarCategoria($id_categoria);
+
+            if ($arrCategoria) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación Exitosa');
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, inténtelo de nuevo');
+            }
+        }
+        echo json_encode($arr_Respuesta);
+    }
 }

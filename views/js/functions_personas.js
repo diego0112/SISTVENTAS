@@ -60,9 +60,9 @@ async function registrar_personas() {
         });
         json = await respuesta.json();
         if (json.status) {
-            swal("registro", json.mensaje, "success");
+            swal.fire("Registro Exitoso", json.mensaje, "success");
         } else {
-            swal("Registro", json.mensaje, "error");
+            swal.fire("Registro Fallido", json.mensaje, "error");
         }
 
         console.log(json);
@@ -132,5 +132,43 @@ async function actualizar_persona() {
         console.log(json);
     } catch (e) {
         console.error("Oops, ocurrió un error: " + e);
+    }
+}
+async function eliminarPersona(id) {
+    swal.fire({
+        title: '¿Está seguro de eliminar la persona?',
+        text: "",
+        icon: 'warning',
+        showCancelButton: true,
+        buttons: true,
+        dangerMode: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fnt_eliminar_persona(id);
+        }
+    });
+
+    async function fnt_eliminar_persona(id) {
+        const formData = new FormData();
+        formData.append('id_persona', id);
+
+        try {
+            let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=eliminar_persona', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: formData
+            });
+            let json = await respuesta.json();
+            if (json.status) {
+                swal.fire("Eliminación exitosa", json.mensaje, 'success');
+                document.querySelector(`#fila${id}`).remove();
+            } else {
+                swal.fire("Eliminación fallida", json.mensaje, 'error');
+            }
+            console.log(json);
+        } catch (error) {
+            console.error("Error al eliminar persona: " + error);
+        }
     }
 }

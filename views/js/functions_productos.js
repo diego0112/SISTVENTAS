@@ -61,9 +61,9 @@
             });
             json = await respuesta.json();
             if (json.status) {
-                swal("registro", json.mensaje, "success");
+                swal.fire("Registro", json.mensaje, "success");
             } else {
-                swal("Registro", json.mensaje, "error");
+                swal.fire("Registro", json.mensaje, "error");
             }
 
             console.log(json);
@@ -172,9 +172,7 @@
         if (codigo == "" || nombre == "" || detalle == "" || precio == "" || categoria == "" || proveedor == "") {
             alert("Error!!, Campos vacíos");
             return;
-        }
-    
-        try {
+        }try {
             // Preparar los datos del formulario para enviarlos
             const formData = new FormData(frmActualizarProd);
             formData.append('id_producto', id_p);  // El id del producto que estamos editando
@@ -195,9 +193,9 @@
     
             let json = await respuesta.json();
             if (json.status) {
-                swal("Actualización", json.mensaje, "success");
+                swal.fire("Actualización", json.mensaje, "success");
             } else {
-                swal("Actualización", json.mensaje, "error");
+                swal.fire("Actualización", json.mensaje, "error");
             }
     
             console.log(json);
@@ -209,47 +207,44 @@
 
 
     //ELIMINAR PRODUCTO 
-    async function EliminarProducto(id) {
-        swal({
-            title: "¿Estás seguro de que deseas eliminar este producto?",
+    async function eliminar_producto(id) {
+        swal.fire({
+            title: '¿Está seguro de eliminar el producto?',
             text: "",
-            icon: "warning",
+            icon: 'warning',
+            showCancelButton: true,
             buttons: true,
             dangerMode: true
-        }).then((willDelete)=> {
-            if (willDelete) {
+        }).then((result) => {
+            if (result.isConfirmed) {
                 fnt_eliminar(id);
             }
-
-        })
-
-    async function fnt_eliminar(id) {
-        const formData = new FormData();
-        formData.append("id_producto", id);
-
-        try {
-            let respuesta = await fetch(base_url + "controller/Producto.php?tipo=eliminar", {
-                method: 'POST',
-                mode: 'cors',
-                cache: 'no-cache',
-                body: formData
-            });
+        });
     
-            json = await respuesta.json();
+        async function fnt_eliminar(id) {
+            const formdata = new FormData();
+            formdata.append('id_producto', id);
     
-            if (json.status) {
-                swal("Eliminar", "Eliminado Correctamente", "success");
-                document.querySelector('#fila' + id).remove(); // Elimina la fila del DOM
-            } else {
-                swal('Eliminar', 'Eliminado Correctamente', 'success');
+            try {
+                let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=eliminar_producto', {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    body: formdata
+                });
+                let json = await respuesta.json();
+                if (json.status) {
+                    swal.fire("Eliminación exitosa", json.mensaje, 'success');
+                    document.querySelector('#fila' + id).remove();
+                } else {
+                    swal.fire("Eliminación fallida", json.mensaje, 'error');
+                }
+                console.log(json);
+            } catch (error) {
+                console.log("Error al eliminar producto: " + error);
             }
-        } catch (e) {
-            console.error("Error al eliminar el producto: " + e);
         }
-
     }
-
-}
     
     
 
