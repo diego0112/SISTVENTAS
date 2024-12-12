@@ -8,6 +8,12 @@ class PersonaModel
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
+    public function verPersonas($id)
+    {
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE id = '{$id}'");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
     public function registrarPersona(
         $nro_identidad,
         $razon_social,
@@ -86,4 +92,55 @@ class PersonaModel
     }
 
 
+    public function actualizarPersona(
+        $id,
+       
+        $razon_social,
+        $telefono,
+        $correo,
+        $departamento,
+        $provincia,
+        $distrito,
+        $codigo_postal,
+        $direccion,
+        $rol
+    ) {
+        $sql = $this->conexion->query("CALL actualizar_persona(
+            '{$id}', '{$razon_social}', '{$telefono}', '{$correo}',
+            '{$departamento}', '{$provincia}', '{$distrito}', '{$codigo_postal}', '{$direccion}', '{$rol}')");
+
+        if (!$sql) {
+            die("Error en la consulta: " . $this->conexion->error);
+        }
+
+        return $sql;
+    }
+    public function personaTieneAsociaciones($id)
+{
+    $sql = $this->conexion->query("SELECT COUNT(*) as count FROM compras WHERE id_trabajador = '{$id}'");
+    $resultado = $sql->fetch_object();
+    if ($resultado->count > 0) {
+        return true;
+    }
+
+    $sql = $this->conexion->query("SELECT COUNT(*) as count FROM producto WHERE id_proveedor = '{$id}'");
+    $resultado = $sql->fetch_object();
+    return $resultado->count > 0;
 }
+
+    public function eliminarPersona($id)
+    {
+        $sql = $this->conexion->query("CALL eliminar_persona('{$id}')");
+    
+        if (!$sql) {
+            die("Error en la consulta: " . $this->conexion->error);
+        }
+    
+        return $sql;
+    }
+    
+}
+
+
+
+

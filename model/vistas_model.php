@@ -23,14 +23,18 @@ class vistaModelo
             'TerminosyCondiciones',
             'nueva-categoria',
             'nueva-compra',
+            'EditarCompra',
             'principal',
             'nuevo-persona',
             'principal',
             'productos',
             'categorias',
             'personas',
+            'Editarpersona',
             'EditarProducto',
             'EliminarProducto',
+            'EditarCategoria',
+            'eliminar_categoria',
             'compras'
         ];
        /* if (!isset($_SESSION['sesion_venta_id'])) {

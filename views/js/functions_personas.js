@@ -1,3 +1,36 @@
+async function ver_persona(id) {
+    const formData = new FormData();
+    formData.append('id_persona', id);
+
+    try {
+        let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=ver_persona', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: formData
+        });
+        json = await respuesta.json();
+        if (json.status) {
+            document.querySelector('#id_persona').value = json.contenido.id;
+            document.querySelector('#nro_identidad').value = json.contenido.nro_identidad;
+            document.querySelector('#razon_social').value = json.contenido.razon_social;
+            document.querySelector('#telefono').value = json.contenido.telefono;
+            document.querySelector('#correo').value = json.contenido.correo;
+            document.querySelector('#departamento').value = json.contenido.departamento;
+            document.querySelector('#provincia').value = json.contenido.provincia;
+            document.querySelector('#distrito').value = json.contenido.distrito;
+            document.querySelector('#codigo_postal').value = json.contenido.codigo_postal;
+            document.querySelector('#direccion').value = json.contenido.direccion;
+            document.querySelector('#rol').value = json.contenido.rol;
+        } else {
+            window.location = base_url + "personas";
+        }
+        console.log(json);
+    } catch (error) {
+        console.log("Ops ocurrió un error: " + error);
+    }
+}
+
 async function registrar_personas() {
     let nro_identidad = document.getElementById('nro_identidad').value;
     let razon_social = document.querySelector('#razon_social').value;
@@ -77,4 +110,27 @@ async function listarPersonas() {
 }
 if (document.querySelector('#tbl_personas') != null) {
     listarPersonas();
+}
+
+
+async function actualizar_persona() {
+    const datos = new FormData(document.getElementById('frmEditarPers'));
+
+    try {
+        let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=actualizar_persona', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: datos
+        });
+        json = await respuesta.json();
+        if (json.status) {
+            swal.fire("Actualización exitosa", json.mensaje, 'success');
+        } else {
+            swal.fire("Actualización fallida", json.mensaje, 'error');
+        }
+        console.log(json);
+    } catch (e) {
+        console.error("Oops, ocurrió un error: " + e);
+    }
 }

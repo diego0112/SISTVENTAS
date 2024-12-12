@@ -21,6 +21,13 @@ class CategoriaModel
         return $arrRespuesta;
     }
 
+    public function verCategorias($id)
+    {
+        $sql = $this->conexion->query("SELECT * FROM categoria WHERE id = '{$id}'");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
+
     public function registrar_categoria($nombre,$detalle){
         $sql = $this->conexion->query("CALL insertar_categoria
         ('{$nombre}', '{$detalle}')");
@@ -38,4 +45,23 @@ class CategoriaModel
         $objeto= $respuesta->fetch_object();
         return $objeto;
     }
+
+    // ACTUALIZAR CATEGORIA 
+    public function actualizar_categoria($id, $nombre, $detalle) {
+
+        $sql = $this->conexion->query("CALL actualizar_categoria('{$id}', '{$nombre}', '{$detalle}')");
+
+        if (!$sql) {
+            die("Error en la consulta: " . $this->conexion->error);
+        }
+
+        return $sql;
+    }
+    // ELIMINAR CATEGORIA
+            public function eliminar_categoria($id)
+        {
+            $sql = $this->conexion->query("CALL eliminar_categoria('{$id}')");
+            $sql = $sql->fetch_object();
+            return $sql;
+        }
 }

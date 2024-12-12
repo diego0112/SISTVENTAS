@@ -1,3 +1,28 @@
+async function ver_categoria(id) {
+    const formData = new FormData();
+    formData.append('id_categoria', id);
+
+    try {
+        let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=ver_categorias', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: formData
+        });
+        json = await respuesta.json();
+        if (json.status) {
+            document.querySelector('#id_categoria').value = json.contenido.id;
+            document.querySelector('#nombre').value = json.contenido.nombre;
+            document.querySelector('#detalle').value = json.contenido.detalle;
+        } else {
+            window.location = base_url + "categorias";
+        }
+        console.log(json);
+    } catch (error) {
+        console.log("Ops ocurrió un error: " + error);
+    }
+}
+
 async function registrar_categoria() {
     let nombre = document.getElementById('nombre').value;
     let detalle = document.getElementById('detalle').value;
@@ -61,3 +86,75 @@ if (document.querySelector('#tbl_categorias') != null) {
     listarCategoria();
 }
 
+
+
+ //ACTUALIZAR CATEGORIA 
+ async function actualizar_categoria() {
+    const datos = new FormData(document.getElementById('frmEditarCat'));
+    
+    try {
+
+        // Enviar los datos al servidor
+        let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=actualizar', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: datos
+        });
+        let json = await respuesta.json();
+        if (json.status) {
+            swal("Actualización", json.mensaje, "success");
+        } else {
+            swal("Actualización", json.mensaje, "error");
+        }
+
+        console.log(json);
+    } catch (e) {
+        console.log("Oops, ocurrió un error: " + e);
+    } 
+}
+
+
+
+//ELIMINAR CATEGORIA
+async function eliminar_categoria(id) {
+    swal({
+        title: "¿Estás seguro de que deseas eliminar este producto?",
+        text: "",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+    }).then((willDelete)=> {
+        if (willDelete) {
+            fnt_eliminar(id);
+        }
+
+    })
+
+async function fnt_eliminar(id) {
+    const formData = new FormData();
+    formData.append("id_producto", id);
+
+    try {
+        let respuesta = await fetch(base_url + "controller/Producto.php?tipo=eliminar", {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: formData
+        });
+
+        json = await respuesta.json();
+
+        if (json.status) {
+            swal("Eliminar", "Eliminado Correctamente", "success");
+            document.querySelector('#fila' + id).remove(); // Elimina la fila del DOM
+        } else {
+            swal('Eliminar', 'Eliminado Correctamente', 'success');
+        }
+    } catch (e) {
+        console.error("Error al eliminar el producto: " + e);
+    }
+
+}
+
+}

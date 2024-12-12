@@ -145,7 +145,7 @@
                 document.querySelector('#precio').value = json.Contenido.precio;
                 document.querySelector('#categoria').value = json.Contenido.id_categoria;  
                 document.querySelector('#proveedor').value = json.Contenido.id_proveedor;
-                document.querySelector('#img').value = json.Contenido.img;
+                document.querySelector('#imagen').value = json.Contenido.img;
                 
             }else{
                 window.location = base_url+"productos";
